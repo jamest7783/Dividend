@@ -8,19 +8,11 @@
 
 ***
 
-### ***Description*** TEST
+### ***Description*** 
 ##### Dividends is a position trading web application that allows users to build and manage portfolios, with the ability to place orders with real-time market data. Users can also create topic discussions with other investors and leave insights, or replies, within those threads. Additionally, users can stay up to date on market news, and make more informed trading decisions using an abundance of technical indicators and chart visualizations. 
 
 
-
-For Project Approval
-Detailed README (Name, links to socials, a detailed description of your project, technologies to be used)
-Full Entity Relationship Diagram (ERD) for the backend
-Component Component Hierarchy Diagram (Lucidchart or other) for the frontend
-Trello Board
-
-
-***
+****
 
 
 * Javascript, HTML, CSS
@@ -36,7 +28,7 @@ Trello Board
 
 
 
-***
+****
 
 ### ***Screenshots***
 ##### image header 1
