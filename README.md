@@ -30,9 +30,10 @@
 
 ****
 
-### ***Screenshots***
-##### Initial Planning
+### ***Initial Planning***
 <img src=assets/Initial_Planning.png  width="400" height="300" />
+<img src=assets/Initial_Planning2.png  width="400" height="300" />
+<img src=assets/ERD.png  width="400" height="300" />
 <img src=assets/Initial_Planning2.png  width="400" height="300" />
 
 ***
@@ -51,4 +52,5 @@
 ##### [google-news-json](https://www.npmjs.com/package/google-news-jsonstl) 
 ##### [stylized-component](https://styled-components.com/) 
 ##### [chart.js](https://www.chartjs.org/) 
+##### [SQL vs NoSQL](https://www.youtube.com/watch?v=ZS_kXvOeQ5Y&t=1144s) 
  
