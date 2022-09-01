@@ -31,28 +31,24 @@
 ****
 
 ### ***Screenshots***
-##### image header 1
-![Image1](https://4.bp.blogspot.com/-dP0lhWcm444/WZMsQMiwEYI/AAAAAAAADvc/C7syJ3jIqLkvIIIouAB0TxoRqo3r_mJwACEwYBhgL/s1600/DSC02288.jpg)
-
-##### image header 2
-![Image2](https://listsofjohn.com/img/54/53646.jpg)
-
-##### image header 2
-![Image3](https://scontent-iad3-1.xx.fbcdn.net/v/t1.6435-9/92694922_10157196968703527_1625985600773423104_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=973b4a&_nc_ohc=PkqePN8fNp4AX9u-bIb&_nc_ht=scontent-iad3-1.xx&oh=00_AT9EaV03X-e9I5U-lH8JHfcc8dZD1iVzQcSKvKGC2MtaPA&oe=62D78353)
+##### Initial Planning
+<img src=assets/Initial_Planning.png  width="400" height="300" />
+<img src=assets/Initial_Planning2.png  width="400" height="300" />
 
 ***
 
 ### ***Future Updates***
-- [ ] Future Update 1
-- [ ] Future Update 2
-- [x] Completed Update
-- [x] ~~Strikethrough~~ Items Also
+- [ ] ....
+- [ ] ....
+- [x] ....
+- [x] ....
 
 ***
 
 ### ***Credits***
 
-##### Kaweah on Summit Post: [Kaweah](https://www.summitpost.org/black-kaweah/150911) 
-##### Markdown Lesson: [Markdown](https://github.com/SEI-R-6-21/u1_hw_markdown) 
-##### CSS CheatSheets: [Cheatsheets](https://css-tricks.com/) 
-Project must be well-scoped, meaning that you can capably reach MVP by the due date
+##### [yahoo-finance-npm](https://github.com/pilwon/node-yahoo-finance) 
+##### [google-news-json](https://www.npmjs.com/package/google-news-jsonstl) 
+##### [stylized-component](https://styled-components.com/) 
+##### [chart.js](https://www.chartjs.org/) 
+ 
