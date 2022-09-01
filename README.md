@@ -34,7 +34,7 @@
 <img src=assets/Initial_Planning.png  width="400" height="300" />
 <img src=assets/Initial_Planning2.png  width="400" height="300" />
 <img src=assets/ERD.png  width="400" height="300" />
-<img src=assets/Initial_Planning2.png  width="400" height="300" />
+<img src=assets/Component_Hierarchy_Diagram.png  width="600" height="300" />
 
 ***
 
