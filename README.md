@@ -1,14 +1,17 @@
 # dividends
+<img align="left" width="40" height="40" src="https://cdn.corporatefinanceinstitute.com/assets/japanese-candlestick7.jpeg" alt="Resume application project app icon">
 
-# Project Title
-### Date: 06/22/2022
-### By: James Jewitt
-[LinkedIn]( https://www.linkedin.com/in/james-jewitt/ ) |  [GitHub](https://github.com/jamest7783) 
+
+#### 09.01.2022
+####
+[LinkedIn]( https://www.linkedin.com/in/james-jewitt/ ) |  [GitHub](https://github.com/jamest7783) |  [Trello](https://trello.com/b/VUohSIUT/dividends)
 
 ***
 
 ### ***Description***
-##### This is where I would put a description that has to do with the specific project being submited blah blah blahhh and blah and blah blah or blah This is where I would put a description that has to do with the specific project being submited blah blah blahhh and blah and blah blah or blah This is where I would put a description that has to do with the specific project being submited blah blah blahhh and blah and blah blah or blah
+##### Dividends is a position trading web application that allows users to build and manage portfolios, with the ability to place orders with real-time market data. Users can also create topic discussions with other investors and leave insights, or replies, within those threads. Additionally, users can stay up to date on market news, and make more informed trading decisions using an abundance of technical indicators and chart visualizations. 
+
+
 
 For Project Approval
 Detailed README (Name, links to socials, a detailed description of your project, technologies to be used)
@@ -19,11 +22,19 @@ Trello Board
 
 ***
 
-* technology 1
-* technology 2
-    * sub-category 1
-    * sub-category 2
-* technology 3
+
+* Javascript, HTML, CSS
+* React
+* Express
+* MongoDB & PostGreSQL
+
+* Libraries
+   * node-yahoo-finance 
+   * google-news-json 
+   * stylized-components
+   * chart.js
+
+
 
 ***
 
