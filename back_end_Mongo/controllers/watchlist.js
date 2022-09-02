@@ -1,12 +1,5 @@
 const Watchlist=require('../models/Watchlist')
 
-/*
-create a watchlist
-read a watchlist
-update a watchlist
-delete a watchlist
-*/
-
 const createWatchlist=async (req,res)=>{
     try{
         const {name,symbols}=req.body
@@ -42,10 +35,6 @@ const deleteWatchlist=async (req,res)=>{
         res.status(200).json({alert:`Watchlist with ID:${id} deleted.`})
     }catch(error){throw error}
 }
-
-
-
-
 
 module.exports={
     createWatchlist,
