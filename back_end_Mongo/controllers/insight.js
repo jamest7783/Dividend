@@ -1,5 +1,11 @@
 const Insight=require('../models/Insight')
 
+const allInsights=async (req,res)=>{
+    try{
+        const insights=await Insight.find()
+        res.status(200).json(insights)
+    }catch(error){throw error}
+}
 const createInsight=async (req,res)=>{
     try{
         const {text,thread,reactions,voters,votes}=req.body
@@ -11,7 +17,7 @@ const readInsight=async (req,res)=>{
     try{
         const {id}=req.params
         const insight=Insight.findById(id)
-        !insight[0]?
+        !insight?
         res.status(200).json({alert:`Insight with ID:${id} not found.`}):
         res.status(200).json(insight)
     }catch(error){throw error}
@@ -20,7 +26,7 @@ const updateInsight=async (req,res)=>{
     try{
         const {id}=req.params
         const insight=Reaction.findByIdAndUpdate(id,req.body,{new:true})
-        !insight[0]?
+        !insight?
         res.status(200).json({alert:`Insight with ID:${id} not found.`}):
         res.status(200).json(insight)
     }catch(error){throw error}
@@ -29,13 +35,14 @@ const deleteInsight=async (req,res)=>{
     try{
         const {id}=req.params
         const insight=Insight.findByIdAndDelete(id)
-        !insight[0]?
+        !insight?
         res.status(200).json({alert:`Insight with ID:${id} not found.`}):
         res.status(200).json({alert:`Insight with ID:${id} deleted.`})
     }catch(error){throw error}
 }
 
 module.exports={
+    allInsights,
     createInsight,
     readInsight,
     updateInsight,

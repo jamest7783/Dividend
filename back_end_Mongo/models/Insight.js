@@ -3,11 +3,11 @@ const {Schema}=require('mongoose')
 
 const Insight=new Schema(
     {
-        text:{type:String,required:true},
+        text:{type:String,required:true,default:''},
         thread:{type:Schema.Types.ObjectId,ref:'Thread'},
         reactions:[{type:Schema.Types.ObjectId,ref:'Reaction'}],
         voters:[{type:Schema.Types.ObjectId,ref:'Investor'}],
-        votes:{type:Number,required:true}
+        votes:{type:Number,required:true,default:0}
     },
     {timestamps:true}
 )
