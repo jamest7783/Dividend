@@ -2,6 +2,7 @@ const fund=require('./fund')
 const insight=require('./insight')
 const investor=require('./investor')
 const reaction=require('./reaction')
+const thread=require('./thread')
 const watchlist=require('./watchlist')
 
 module.exports={
@@ -9,5 +10,6 @@ module.exports={
     insight,
     investor,
     reaction,
-    watchlist
+    watchlist,
+    thread
 }

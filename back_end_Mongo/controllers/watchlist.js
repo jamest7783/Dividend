@@ -28,7 +28,7 @@ const readWatchlist=async (req,res)=>{
 const updateWatchlist=async (req,res)=>{
     try{
         const {id}=req.params
-        const watchlist=Watchlist.findByIdAndUpdate(id,req.body,{new:true})
+        const watchlist=await Watchlist.findByIdAndUpdate(id,req.body,{new:true})
         !watchlist?
         res.status(200).json({alert:`Watchlist with ID:${id} not found.`}):
         res.status(200).json(watchlist)
@@ -37,7 +37,7 @@ const updateWatchlist=async (req,res)=>{
 const deleteWatchlist=async (req,res)=>{
     try{
         const {id}=req.params
-        const watchlist=Watchlist.findByIdAndDelete(id)
+        const watchlist=await Watchlist.findByIdAndDelete(id)
         !watchlist?
         res.status(200).json({alert:`Watchlist with ID:${id} not found.`}):
         res.status(200).json({alert:`Watchlist with ID:${id} deleted.`})
