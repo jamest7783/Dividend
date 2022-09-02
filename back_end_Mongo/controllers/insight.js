@@ -11,12 +11,12 @@ const createInsight=async (req,res)=>{
         const {text,thread,reactions,voters,votes}=req.body
         const insight=await Insight.create({text,thread,reactions,voters,votes}) 
         res.status(200).json(insight)
-    }catch(error){throw ersror}
+    }catch(error){throw error}
 }
 const readInsight=async (req,res)=>{
     try{
         const {id}=req.params
-        const insight=Insight.findById(id)
+        const insight=await Insight.findById(id)
         !insight?
         res.status(200).json({alert:`Insight with ID:${id} not found.`}):
         res.status(200).json(insight)
@@ -25,7 +25,7 @@ const readInsight=async (req,res)=>{
 const updateInsight=async (req,res)=>{
     try{
         const {id}=req.params
-        const insight=Reaction.findByIdAndUpdate(id,req.body,{new:true})
+        const insight=await Insight.findByIdAndUpdate(id,req.body,{new:true})
         !insight?
         res.status(200).json({alert:`Insight with ID:${id} not found.`}):
         res.status(200).json(insight)
@@ -34,7 +34,7 @@ const updateInsight=async (req,res)=>{
 const deleteInsight=async (req,res)=>{
     try{
         const {id}=req.params
-        const insight=Insight.findByIdAndDelete(id)
+        const insight=await Insight.findByIdAndDelete(id)
         !insight?
         res.status(200).json({alert:`Insight with ID:${id} not found.`}):
         res.status(200).json({alert:`Insight with ID:${id} deleted.`})

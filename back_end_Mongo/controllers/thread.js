@@ -9,14 +9,14 @@ const allThreads=async (req,res)=>{
 const createThread=async (req,res)=>{
     try{
         const {author,name,symbols,tags}=req.body
-        const thread=await Insight.create({author,name,symbols,tags}) 
+        const thread=await Thread.create({author,name,symbols,tags}) 
         res.status(200).json(thread)
     }catch(error){throw error}
 }
 const readThread=async (req,res)=>{
     try{
         const {id}=req.params
-        const thread=Thread.findById(id)
+        const thread=await Thread.findById(id)
         !thread?
         res.status(200).json({alert:`Thread with ID:${id} not found.`}):
         res.status(200).json(thread)
@@ -25,7 +25,7 @@ const readThread=async (req,res)=>{
 const updateThread=async (req,res)=>{
     try{
         const {id}=req.params
-        const thread=Thread.findByIdAndUpdate(id,req.body,{new:true})
+        const thread=await Thread.findByIdAndUpdate(id,req.body,{new:true})
         !thread?
         res.status(200).json({alert:`Thread with ID:${id} not found.`}):
         res.status(200).json(thread)
@@ -34,7 +34,7 @@ const updateThread=async (req,res)=>{
 const deleteThread=async (req,res)=>{
     try{
         const {id}=req.params
-        const thread=Thread.findByIdAndDelete(id)
+        const thread=await Thread.findByIdAndDelete(id)
         !thread?
         res.status(200).json({alert:`Thread with ID:${id} not found.`}):
         res.status(200).json({alert:`Thread with ID:${id} deleted.`})
