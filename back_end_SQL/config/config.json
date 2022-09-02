@@ -1,6 +1,6 @@
 {
   "development": {
-    "database": "dividends_sql_development",
+    "database": "dividends_sql",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
