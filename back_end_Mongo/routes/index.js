@@ -2,12 +2,23 @@ const {Router}=require('express')
 const router=Router()
 const {fund,insight,investor,reaction,thread,watchlist}=require('../controllers')
 
+router.get('/fund/all',fund.allFunds)
+router.post('/fund/create',fund.createFund)
+router.get('/fund/read/:id',fund.readFund)
+router.put('/fund/update/:id',fund.updateFund)
+router.delete('/fund/delete/:id',fund.deleteFund)
 
 router.get('/insight/all',insight.allInsights)
 router.post('/insight/create',insight.createInsight)
 router.get('/insight/read/:id',insight.readInsight)
 router.put('/insight/update/:id',insight.updateInsight)
 router.delete('/insight/delete/:id',insight.deleteInsight)
+
+router.get('/investor/all',investor.allInvestors)
+router.post('/investor/create',investor.createInvestor)
+router.get('/investor/read/:id',investor.readInvestor)
+router.put('/investor/update/:id',investor.updateInvestor)
+router.delete('/investor/delete/:id',investor.deleteInvestor)
 
 router.get('/reaction/all',reaction.allReactions)
 router.post('/reaction/create',reaction.createReaction)
