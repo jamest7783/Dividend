@@ -21,7 +21,7 @@ const readWatchlist=async (req,res)=>{
         console.log(id)
         const watchlist=await Watchlist.findById(id)
         !watchlist?
-        res.status(200).json({alert:`Watchlist with ID:${id} not found.`}):
+        res.status(200).json({alert:`Watchlist with ID: ${id} not found.`}):
         res.status(200).json(watchlist)
     }catch(error){throw error}
 }
@@ -30,7 +30,7 @@ const updateWatchlist=async (req,res)=>{
         const {id}=req.params
         const watchlist=await Watchlist.findByIdAndUpdate(id,req.body,{new:true})
         !watchlist?
-        res.status(200).json({alert:`Watchlist with ID:${id} not found.`}):
+        res.status(200).json({alert:`Watchlist with ID: ${id} not found.`}):
         res.status(200).json(watchlist)
     }catch(error){throw error}
 }
@@ -39,8 +39,8 @@ const deleteWatchlist=async (req,res)=>{
         const {id}=req.params
         const watchlist=await Watchlist.findByIdAndDelete(id)
         !watchlist?
-        res.status(200).json({alert:`Watchlist with ID:${id} not found.`}):
-        res.status(200).json({alert:`Watchlist with ID:${id} deleted.`})
+        res.status(200).json({alert:`Watchlist with ID: ${id} not found.`}):
+        res.status(200).json({alert:`Watchlist with ID: ${id} deleted.`})
     }catch(error){throw error}
 }
 

@@ -3,12 +3,12 @@ const {Schema}=require('mongoose')
 
 const Fund=new Schema(
     {
-        name:{type:String,required:true},
-        icon:{type:String,required:true},
-        description:{type:String,required:true},
-        capital:{type:Number,required:true},
+        name:{type:String,required:true,default:'fund'},
+        icon:{type:String,required:true,default:'url()'},
+        description:{type:String,required:true,default:''},
+        capital:{type:Number,required:true,default:10000},
         investors:[{type:Schema.Types.ObjectId,ref:'Investor'}],
-        portfolios:{type:Array,required:true},
+        portfolios:{type:Array,required:true,default:[]},
     },
     {timestamps:true}
 )

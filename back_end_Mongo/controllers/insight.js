@@ -18,7 +18,7 @@ const readInsight=async (req,res)=>{
         const {id}=req.params
         const insight=await Insight.findById(id)
         !insight?
-        res.status(200).json({alert:`Insight with ID:${id} not found.`}):
+        res.status(200).json({alert:`Insight with ID: ${id} not found.`}):
         res.status(200).json(insight)
     }catch(error){throw error}
 }
@@ -27,7 +27,7 @@ const updateInsight=async (req,res)=>{
         const {id}=req.params
         const insight=await Insight.findByIdAndUpdate(id,req.body,{new:true})
         !insight?
-        res.status(200).json({alert:`Insight with ID:${id} not found.`}):
+        res.status(200).json({alert:`Insight with ID: ${id} not found.`}):
         res.status(200).json(insight)
     }catch(error){throw error}
 }
@@ -36,8 +36,8 @@ const deleteInsight=async (req,res)=>{
         const {id}=req.params
         const insight=await Insight.findByIdAndDelete(id)
         !insight?
-        res.status(200).json({alert:`Insight with ID:${id} not found.`}):
-        res.status(200).json({alert:`Insight with ID:${id} deleted.`})
+        res.status(200).json({alert:`Insight with ID: ${id} not found.`}):
+        res.status(200).json({alert:`Insight with ID: ${id} deleted.`})
     }catch(error){throw error}
 }
 

@@ -18,7 +18,7 @@ const readReaction=async (req,res)=>{
         const {id}=req.params
         const reaction=await Reaction.findById(id)
         !reaction?
-        res.status(200).json({alert:`Reaction with ID:${id} not found.`}):
+        res.status(200).json({alert:`Reaction with ID: ${id} not found.`}):
         res.status(200).json(reaction)
     }catch(error){throw error}
 }
@@ -27,7 +27,7 @@ const updateReaction=async (req,res)=>{
         const {id}=req.params
         const reaction=await Reaction.findByIdAndUpdate(id,req.body,{new:true})
         !reaction?
-        res.status(200).json({alert:`Reaction with ID:${id} not found.`}):
+        res.status(200).json({alert:`Reaction with ID: ${id} not found.`}):
         res.status(200).json(reaction)
     }catch(error){throw error}
 }
@@ -36,8 +36,8 @@ const deleteReaction=async (req,res)=>{
         const {id}=req.params
         const reaction=await Reaction.findByIdAndDelete(id)
         !reaction?
-        res.status(200).json({alert:`Reaction with ID:${id} not found.`}):
-        res.status(200).json({alert:`Reaction with ID:${id} deleted.`})
+        res.status(200).json({alert:`Reaction with ID: ${id} not found.`}):
+        res.status(200).json({alert:`Reaction with ID: ${id} deleted.`})
     }catch(error){throw error}
 }
 
