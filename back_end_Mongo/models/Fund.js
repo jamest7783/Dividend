@@ -5,8 +5,8 @@ const Fund=new Schema(
     {
         name:{type:String,required:true,default:'fund'},
         icon:{type:String,required:true,default:'url()'},
-        description:{type:String,required:true,default:''},
-        capital:{type:Number,required:true,default:10000},
+        description:{type:String,required:true,default:' '},
+        capital:{type:Number,required:true,default:0},
         investors:[{type:Schema.Types.ObjectId,ref:'Investor'}],
         portfolios:{type:Array,required:true,default:[]},
     },

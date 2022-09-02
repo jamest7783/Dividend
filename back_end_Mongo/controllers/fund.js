@@ -8,8 +8,8 @@ const allFunds=async (req,res)=>{
 }
 const createFund=async (req,res)=>{
     try{
-        const {first_name,last_name,email,icon,password,location,capital}=req.body
-        const fund=await Fund.create({first_name,last_name,email,icon,password,location,capital}) 
+        const {name,icon,decription}=req.body
+        const fund=await Fund.create({name,icon,decription}) 
         res.status(200).json(fund)
     }catch(error){throw error}
 }
