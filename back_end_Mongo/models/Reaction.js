@@ -1,10 +1,11 @@
+const mongoose=require('mongoose')
 const {Schema}=require('mongoose')
 
-const reactionSchema=new Schema(
+const Reaction=new Schema(
     {
         image:{type:String,required:true},
         investor:[{type:Schema.Types.ObjectId,ref:'Investor'}],
     },
     {timestamps:true}
 )
-module.exports=reactionSchema
+module.exports=mongoose.model('Reaction',Reaction)

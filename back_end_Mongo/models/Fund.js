@@ -1,6 +1,7 @@
+const mongoose=require('mongoose')
 const {Schema}=require('mongoose')
 
-const fundSchema=new Schema(
+const Fund=new Schema(
     {
         name:{type:String,required:true},
         icon:{type:String,required:true},
@@ -11,4 +12,4 @@ const fundSchema=new Schema(
     },
     {timestamps:true}
 )
-module.exports=fundSchema
+module.exports=mongoose.model('Fund',Fund)

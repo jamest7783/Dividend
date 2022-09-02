@@ -1,10 +1,11 @@
+const mongoose=require('mongoose')
 const {Schema}=require('mongoose')
 
-const watchlistSchema=new Schema(
+const Watchlist=new Schema(
     {
         name:{type:String,required:true},
         symbols:{type:Array,required:true},
     },
     {timestamps:true}
 )
-module.exports=watchlistSchema
+module.exports=mongoose.model('Watchlist',Watchlist)

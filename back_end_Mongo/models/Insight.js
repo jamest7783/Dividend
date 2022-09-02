@@ -1,6 +1,7 @@
+const mongoose=require('mongoose')
 const {Schema}=require('mongoose')
 
-const insightSchema=new Schema(
+const Insight=new Schema(
     {
         text:{type:String,required:true},
         thread:{type:Schema.Types.ObjectId,ref:'Thread'},
@@ -10,4 +11,4 @@ const insightSchema=new Schema(
     },
     {timestamps:true}
 )
-module.exports=insightSchema
+module.exports=mongoose.model('Insight',Insight)

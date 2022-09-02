@@ -1,6 +1,7 @@
+const mongoose=require('mongoose')
 const {Schema}=require('mongoose')
 
-const investorSchema=new Schema(
+const Investor=new Schema(
     {
         first_name:{type:String,required:true},
         last_name:{type:String,required:true},
@@ -20,4 +21,4 @@ const investorSchema=new Schema(
     },
     {timestamps:true}
 )
-module.exports=investorSchema
+module.exports=mongoose.model('Investor',Investor)
