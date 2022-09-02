@@ -3,6 +3,7 @@ const {Schema}=require('mongoose')
 
 const Insight=new Schema(
     {
+        author:[{type:Schema.Types.ObjectId,ref:'Investor'}],
         text:{type:String,required:true,default:''},
         thread:{type:Schema.Types.ObjectId,ref:'Thread'},
         reactions:[{type:Schema.Types.ObjectId,ref:'Reaction'}],
