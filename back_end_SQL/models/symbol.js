@@ -5,7 +5,7 @@ const {
 module.exports = (sequelize, DataTypes) => {
   class Symbol extends Model {
     static associate(models) {
-      Symbol.hasMany(models.Position,{foreignKey:'position_id'})
+      Symbol.hasMany(models.Trade,{foreignKey:'symbolId'})
     }
   }
   Symbol.init({
