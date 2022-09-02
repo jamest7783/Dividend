@@ -5,6 +5,8 @@ create a fund
 read a fund
 update a fund
 delete a fund
+
+AUTH
 */
 
 
