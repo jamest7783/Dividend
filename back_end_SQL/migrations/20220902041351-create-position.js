@@ -17,6 +17,14 @@ module.exports = {
       shares: {
         type: Sequelize.INTEGER
       },
+      portfolioId:{
+        type:Sequelize.INTEGER,
+        onDelete:'CASCADE',
+        references:{
+          model:'portfolios',
+          key:'id'
+        }
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

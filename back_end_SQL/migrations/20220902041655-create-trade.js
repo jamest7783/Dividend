@@ -20,6 +20,22 @@ module.exports = {
       shares: {
         type: Sequelize.INTEGER
       },
+      positionId:{
+        type:Sequelize.INTEGER,
+        onDelete:'CASCADE',
+        references:{
+          model:'positions',
+          key:'id'
+        }
+      },
+      symbolId:{
+        type:Sequelize.INTEGER,
+        onDelete:'CASCADE',
+        references:{
+          model:'symbols',
+          key:'id'
+        }
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
