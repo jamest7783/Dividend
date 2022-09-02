@@ -15,7 +15,7 @@
 ****
 
 
-* Javascript, HTML, CSS
+* Javascript, HTML, CSS 
 * React
 * Express
 * MongoDB & PostGreSQL
