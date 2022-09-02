@@ -1,4 +1,31 @@
 const Investor=require('../models/Investor')
+const middleware=require('../middleware')
+
+
+const registerInvestor=async (req,res)=>{
+    try{
+        const {first_name,last_name,email,icon,location,capital,password}=req.body
+        let digest=await middleware.hash(password)
+        const investor=await Investor.create({first_name,last_name,email,icon,location,capital,digest})
+        res.status(200).json(investor)
+    }catch(error){throw error}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 const allInvestors=async (req,res)=>{
     try{
