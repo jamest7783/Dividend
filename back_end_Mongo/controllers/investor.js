@@ -1,13 +1,32 @@
-const Investor=require('../models/Investor')
+const { raw } = require('express')
 const middleware=require('../middleware')
+const Investor=require('../models/Investor')
 
-
-const registerInvestor=async (req,res)=>{
+const register=async (req,res)=>{
     try{
-        const {first_name,last_name,email,icon,location,capital,password}=req.body
-        let digest=await middleware.hash(password)
-        const investor=await Investor.create({first_name,last_name,email,icon,location,capital,digest})
+        const {first_name,last_name,email,icon,location,capital,initialPassword}=req.body
+        let digest=await middleware.hash(initialPassword)
+        const investor=await Investor.create({
+            first_name,
+            last_name,
+            email,
+            icon,
+            location,
+            capital,
+            passwordDigest:digest
+        })
         res.status(200).json(investor)
+    }catch(error){throw error}
+}
+const login=async (req,res)=>{
+    try{
+        const {email,passwordInput}=req.body
+        const investor=await Investor.findOne({email,raw:true})
+        if(investor && (await middleware.compare(passwordInput,investor.passwordDigest))){
+            let payload={id:investor.id,email:investor.email}
+            let token=middleware.createToken(payload)
+            res.status(200).json({investor:payload,token})
+        }else{res.status(401).json({alert:'Unauthorized/Incorrect Password'})}
     }catch(error){throw error}
 }
 
@@ -69,6 +88,10 @@ const deleteInvestor=async (req,res)=>{
 }
 
 module.exports={
+    
+    register,
+    login,
+
     allInvestors,
     createInvestor,
     readInvestor,

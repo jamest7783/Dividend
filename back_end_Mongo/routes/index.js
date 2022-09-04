@@ -14,6 +14,10 @@ router.get('/insight/read/:id',insight.readInsight)
 router.put('/insight/update/:id',insight.updateInsight)
 router.delete('/insight/delete/:id',insight.deleteInsight)
 
+
+router.post('/investor/register',investor.register)
+router.post('/investor/login',investor.login)
+
 router.get('/investor/all',investor.allInvestors)
 router.post('/investor/create',investor.createInvestor)
 router.get('/investor/read/:id',investor.readInvestor)
