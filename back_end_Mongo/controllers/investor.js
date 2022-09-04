@@ -29,23 +29,6 @@ const login=async (req,res)=>{
         }else{res.status(401).json({alert:'Unauthorized/Incorrect Password'})}
     }catch(error){throw error}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 const allInvestors=async (req,res)=>{
     try{
         const investors=await Investor.find()
