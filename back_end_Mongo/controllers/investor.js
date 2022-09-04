@@ -29,6 +29,18 @@ const login=async (req,res)=>{
         }else{res.status(401).json({alert:'Unauthorized/Incorrect Password'})}
     }catch(error){throw error}
 }
+const updatePassword=async ()=>{
+    try{
+        const {email,oldPassword,newPassword}=req.body
+        const investor=await Investor.findOne({email})
+        if(investor && (await middleware.compare(investor.dataValues.passwordDigest,oldPassword))){
+            let digest=await middleware.hash(newPassword)
+            await investor.update({passwordDigest:digest})
+            res.status(200).json({alert:'Successful Password Update'})
+        }
+        res.status(401).json({alert:'Unauthorized/Incorrect Password'})
+    }catch(error){throw error}
+}
 const allInvestors=async (req,res)=>{
     try{
         const investors=await Investor.find()
@@ -74,6 +86,7 @@ module.exports={
     
     register,
     login,
+    updatePassword,
 
     allInvestors,
     createInvestor,
