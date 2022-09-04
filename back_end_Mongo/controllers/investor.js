@@ -1,4 +1,3 @@
-const { raw } = require('express')
 const middleware=require('../middleware')
 const Investor=require('../models/Investor')
 
@@ -29,16 +28,17 @@ const login=async (req,res)=>{
         }else{res.status(401).json({alert:'Unauthorized/Incorrect Password'})}
     }catch(error){throw error}
 }
-const updatePassword=async ()=>{
+const updatePassword=async (req,res)=>{
     try{
         const {email,oldPassword,newPassword}=req.body
-        const investor=await Investor.findOne({email})
-        if(investor && (await middleware.compare(investor.dataValues.passwordDigest,oldPassword))){
+        const investor=await Investor.findOne({email,raw:true})
+        console.log(investor)
+        if(investor && (await middleware.compare(oldPassword,investor.passwordDigest))){
             let digest=await middleware.hash(newPassword)
             await investor.update({passwordDigest:digest})
             res.status(200).json({alert:'Successful Password Update'})
         }
-        res.status(401).json({alert:'Unauthorized/Incorrect Password'})
+        else{res.status(401).json({alert:'Unauthorized/Incorrect Password'})}
     }catch(error){throw error}
 }
 const allInvestors=async (req,res)=>{
