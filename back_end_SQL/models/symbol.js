@@ -5,11 +5,11 @@ const {
 module.exports = (sequelize, DataTypes) => {
   class Symbol extends Model {
     static associate(models) {
-      // Symbol.belongsToMany(models.Position,{
-      //   as:'symbol',
-      //   through:models.Trade,
-      //   foreignKey:'symbolId'
-      // })
+      Symbol.belongsToMany(models.Position,{
+        through:models.Trade,
+        as:'symbols',             // why plural?
+        foreignKey:'symbolId'
+      })
     }
   }
   Symbol.init({
@@ -20,7 +20,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'Symbol',
-    modelName: 'symbols',
+    tableName: 'symbols',
   });
   return Symbol;
 };

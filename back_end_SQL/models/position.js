@@ -6,11 +6,11 @@ module.exports = (sequelize, DataTypes) => {
   class Position extends Model {
     static associate(models) {
       Position.belongsTo(models.Portfolio,{foreignKey:'portfolioId'})
-      // Position.belongsToMany(models.Symbol,{
-      //   through:models.Trade,
-      //   as:'position',
-      //   foreignKey:'positionId'
-      // })
+      Position.belongsToMany(models.Symbol,{
+        through:models.Trade,
+        as:'positions',
+        foreignKey:'positionId'
+      })
     }
   }
   Position.init({
@@ -28,7 +28,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'Position',
-    tabelName: 'positions',
+    tableName: 'positions',
   });
   return Position;
 };
