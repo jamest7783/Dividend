@@ -8,7 +8,7 @@ module.exports = (sequelize, DataTypes) => {
       Position.belongsTo(models.Portfolio,{foreignKey:'portfolioId'})
       Position.belongsToMany(models.Symbol,{
         through:models.Trade,
-        as:'positions',
+        as:'positions',             // why plural?
         foreignKey:'positionId'
       })
     }
