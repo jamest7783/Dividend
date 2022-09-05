@@ -1,3 +1,4 @@
+const { portfolio } = require('.')
 const {Portfolio,Position,Symbol,Trade}=require('../models')
 const position = require('../models/position')
 
@@ -49,9 +50,9 @@ const createTrade=async (req,res)=>{
 
     let symbol=await Symbol.findOrCreate({where:{symbol:ticker},defaults:{symbol:ticker}}) 
     symbol=symbol[0]
-    const positions=await Position.findAll({where:{portfolioId}})
+    const positions=await Position.findOrCreate({where:{portfolioId}})
     let position=positions[0]
-    const trades=await Trade.findAll({where:{symbolId:symbol.id}})
+    const trades=await Trade.findAll({where:{symbolId:symbol.id,positionId:position.id}})
 
 
     res.status(200).json({symbol,position,trades})
