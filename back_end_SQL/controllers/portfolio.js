@@ -36,9 +36,6 @@ const deletePortfolio=async (req,res)=>{
     }catch(error){throw error}
 }
 
-
-
-
 module.exports={
     createPortfolio,
     readPortfolio,
