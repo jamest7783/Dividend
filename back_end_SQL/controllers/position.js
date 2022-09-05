@@ -1,5 +1,4 @@
 const {Position}=require('../models/')
-const {Portfolio}=require('../models')
 
 const createPosition=async (req,res)=>{
     try{
