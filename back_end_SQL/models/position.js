@@ -14,9 +14,9 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Position.init({
-    position: DataTypes.INTEGER,
-    type: DataTypes.STRING,
-    shares: DataTypes.INTEGER,
+    position:{type:DataTypes.INTEGER,defaultValue:0},
+    type:{type:DataTypes.STRING,defaultValue:''},
+    shares:{type:DataTypes.INTEGER,defaultValue:0},
     portfolioId:{
       type:DataTypes.INTEGER,
       onDelete:'CASCADE',
