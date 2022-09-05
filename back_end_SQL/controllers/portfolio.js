@@ -44,24 +44,35 @@ const deletePortfolio=async (req,res)=>{
 
 
 const createTrade=async (req,res)=>{
-    const {portfolioId,pos,type,shares}=req.body
 
-    const positions=await Position.findOrCreate({where:{portfolioId},defaults:{portfolioId}})
-    positions.map((pos)=>{
-        if(position.)
-    })
+    const {portfolioId,ticker}=req.body
 
-
-
-    const symbol=await Symbol.findOrCreate({where:{symbol},defaults:{symbol}})
+    let symbol=await Symbol.findOrCreate({where:{symbol:ticker},defaults:{symbol:ticker}}) 
+    symbol=symbol[0]
+    const positions=await Position.findAll({where:{portfolioId}})
+    let position=positions[0]
+    const trades=await Trade.findAll({where:{symbolId:symbol.id}})
 
 
-
-   
+    res.status(200).json({symbol,position,trades})
 
 
 
-    res.status(200).json(position)
+
+
+
+
+
+    // const positions=await Position.findOrCreate({where:{portfolioId},defaults:{portfolioId}})
+    // let position=positions[0]
+    // const symbols=await Symbol.findOrCreate({where:{symbol:ticker},defaults:{symbol:ticker}})
+    // let symbol=symbols[0]
+    // const trade=await Trade.create({
+    //     positionId:position.id,
+    //     symbolId:symbol.id
+    // })
+    
+    
 
 
 
