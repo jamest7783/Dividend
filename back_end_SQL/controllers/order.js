@@ -1,4 +1,4 @@
-const {Equity,Order,Portfolio}=require('../models')
+const {Equity,Order}=require('../models')
 
 
 const createOrder=async (req,res)=>{

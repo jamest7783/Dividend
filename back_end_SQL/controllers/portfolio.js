@@ -1,4 +1,4 @@
-const {Portfolio}=require('../models')
+const {Portfolio,Order}=require('../models')
 
 const createPortfolio=async (req,res)=>{
     try{
@@ -20,6 +20,41 @@ const readPortfolio=async (req,res)=>{
         res.status(200).json(portfolio)
     }catch(error){throw error}
 }
+const readPortfolioPositions=async (req,res)=>{
+    try{
+        const {pk}=req.params
+        const orders=await Order.findAll({where:{portfolioId:pk}})
+        let positions=Object() 
+        orders?.map((order)=>{
+            if(!(order.equityId in Object.keys(positions))){
+                positions[order.equityId]={}
+            }
+            else if((order.equityId.toString() in Object.keys(positions))){
+                positions[order.equityId]={x:'x'}
+            }
+            
+            
+
+            // if((order.equityId in Object.keys(positions))){
+            //     res.status(200).json({alert:'x'})
+            // }
+            // if(!(order.equityId in Object.keys(positions)))
+            // positions[order.equityId]={
+            //     opened:order.date,
+            //     equityId:order.equityId,
+            //     quantity:order.quantity,
+            //     initial:order.price,
+            //     current:order.price
+            // }
+        })
+        res.status(200).json(Object.keys(positions))
+    }catch(error){throw error}
+
+}
+
+
+
+
 const updatePortfolio=async (req,res)=>{
     try{
         const {pk}=req.params
@@ -44,7 +79,8 @@ module.exports={
     createPortfolio,
     readPortfolio,
     updatePortfolio,
-    deletePortfolio
+    deletePortfolio,
+    readPortfolioPositions
 }
 
 
