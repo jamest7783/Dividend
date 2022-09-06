@@ -30,8 +30,8 @@ const updatePortfolio=async (req,res)=>{
         res.status(200).json({alert:`Portfolio with PK: ${pk} not found.`}):
         res.status(200).json(portfolio)
     }catch(error){throw error}
-}
-const deletePortfolio=async (req,res)=>{
+}//
+const deletePortfolio=async (req,res)=>{ 
     try{
         const {pk}=req.params
         const portfolio=await Portfolio.findByPk(pk)
@@ -53,6 +53,9 @@ const createTrade=async (req,res)=>{
     const positions=await Position.findOrCreate({where:{portfolioId}})
     let position=positions[0]
     const trades=await Trade.findAll({where:{symbolId:symbol.id,positionId:position.id}})
+    if(trades){
+        const position
+    }
 
 
     res.status(200).json({symbol,position,trades})
