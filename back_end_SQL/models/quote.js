@@ -18,12 +18,12 @@ module.exports = (sequelize, DataTypes) => {
         key:'id'
       }
     },
-    date: DataTypes.NUMBER,
-    open: DataTypes.NUMBER,
-    high: DataTypes.NUMBER,
-    low: DataTypes.NUMBER,
-    close: DataTypes.NUMBER,
-    volume: DataTypes.NUMBER
+    date: DataTypes.INTEGER,
+    open: DataTypes.INTEGER,
+    high: DataTypes.INTEGER,
+    low: DataTypes.INTEGER,
+    close: DataTypes.INTEGER,
+    volume: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'Quote',

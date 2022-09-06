@@ -17,22 +17,22 @@ module.exports = {
         }
       },
       date: {
-        type: Sequelize.NUMBER
+        type: Sequelize.INTEGER
       },
       open: {
-        type: Sequelize.NUMBER
+        type: Sequelize.INTEGER
       },
       high: {
-        type: Sequelize.NUMBER
+        type: Sequelize.INTEGER
       },
       low: {
-        type: Sequelize.NUMBER
+        type: Sequelize.INTEGER
       },
       close: {
-        type: Sequelize.NUMBER
+        type: Sequelize.INTEGER
       },
       volume: {
-        type: Sequelize.NUMBER
+        type: Sequelize.INTEGER
       },
       createdAt: {
         allowNull: false,

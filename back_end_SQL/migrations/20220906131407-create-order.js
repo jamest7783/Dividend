@@ -9,19 +9,19 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       date: {
-        type: Sequelize.NUMBER
+        type: Sequelize.INTEGER
       },
       quantity: {
-        type: Sequelize.NUMBER
+        type: Sequelize.INTEGER
       },
       price: {
-        type: Sequelize.NUMBER
+        type: Sequelize.INTEGER
       },
       portfolioId: {
-        type: Sequelize.NUMBER
+        type: Sequelize.INTEGER
       },
       equityId: {
-        type: Sequelize.NUMBER
+        type: Sequelize.INTEGER
       },
       createdAt: {
         allowNull: false,
