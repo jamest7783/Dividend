@@ -6,6 +6,7 @@ const createOrder=async (req,res)=>{
     const {ticker,date,quantity,price}=req.body
 
     const portfolio=await Portfolio.findByPk(pk)
+
     let equity=await Equity.findOrCreate({where:{ticker},defaults:{ticker}})
     equity=equity[0]
     
