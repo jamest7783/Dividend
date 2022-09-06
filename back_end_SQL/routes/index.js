@@ -8,7 +8,7 @@ router.get('/portfolio/read/:pk',portfolio.readPortfolio)
 router.put('/portfolio/update/:pk',portfolio.updatePortfolio)
 router.delete('/portfolio/delete/:pk',portfolio.deletePortfolio)
 
-router.post('/portfolio/:pk/order/create',order.createOrder)
+router.post('/order/create',order.createOrder)
 
 
 module.exports=router
