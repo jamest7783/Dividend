@@ -20,16 +20,16 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       open: {
-        type: Sequelize.INTEGER
+        type: Sequelize.DECIMAL
       },
       high: {
-        type: Sequelize.INTEGER
+        type: Sequelize.DECIMAL
       },
       low: {
-        type: Sequelize.INTEGER
+        type: Sequelize.DECIMAL
       },
       close: {
-        type: Sequelize.INTEGER
+        type: Sequelize.DECIMAL
       },
       volume: {
         type: Sequelize.INTEGER

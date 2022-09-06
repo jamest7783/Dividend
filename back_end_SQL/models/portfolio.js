@@ -22,7 +22,7 @@ module.exports = (sequelize, DataTypes) => {
       defaultValue:''
     },
     capital:{
-      type:DataTypes.INTEGER,
+      type:DataTypes.DECIMAL,
       defaultValue:0
     }
   }, {

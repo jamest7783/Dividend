@@ -18,10 +18,10 @@ module.exports = (sequelize, DataTypes) => {
       }
     },
     date: DataTypes.INTEGER,
-    open: DataTypes.INTEGER,
-    high: DataTypes.INTEGER,
-    low: DataTypes.INTEGER,
-    close: DataTypes.INTEGER,
+    open: DataTypes.DECIMAL,
+    high: DataTypes.DECIMAL,
+    low: DataTypes.DECIMAL,
+    close: DataTypes.DECIMAL,
     volume: DataTypes.INTEGER
   }, {
     sequelize,

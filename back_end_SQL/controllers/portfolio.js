@@ -1,6 +1,5 @@
 const {Portfolio}=require('../models')
 
-
 const createPortfolio=async (req,res)=>{
     try{
         const {name,description,capital}=req.body 
@@ -29,7 +28,7 @@ const updatePortfolio=async (req,res)=>{
         res.status(200).json({alert:`Portfolio with PK: ${pk} not found.`}):
         res.status(200).json(portfolio)
     }catch(error){throw error}
-}//
+}
 const deletePortfolio=async (req,res)=>{ 
     try{
         const {pk}=req.params
@@ -41,13 +40,11 @@ const deletePortfolio=async (req,res)=>{
     }catch(error){throw error}
 }
 
-
 module.exports={
     createPortfolio,
     readPortfolio,
     updatePortfolio,
-    deletePortfolio,
-
+    deletePortfolio
 }
 
 

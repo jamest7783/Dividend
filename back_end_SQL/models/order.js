@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
   Order.init({
     date: DataTypes.INTEGER,
     quantity: DataTypes.INTEGER,
-    price: DataTypes.INTEGER,
+    price: DataTypes.DECIMAL,
     portfolioId:{
       type:DataTypes.INTEGER,
       onDelete:'CASCADE',

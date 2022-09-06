@@ -1,12 +1,14 @@
 const {Router}=require('express')
 const router=Router()
-const {portfolio}=require('../controllers')
+const {equity,order,portfolio,quote}=require('../controllers')
 
 
 router.post('/portfolio/create',portfolio.createPortfolio)
 router.get('/portfolio/read/:pk',portfolio.readPortfolio)
 router.put('/portfolio/update/:pk',portfolio.updatePortfolio)
 router.delete('/portfolio/delete/:pk',portfolio.deletePortfolio)
+
+router.post('/portfolio/:pk/order/create',order.createOrder)
 
 
 module.exports=router
