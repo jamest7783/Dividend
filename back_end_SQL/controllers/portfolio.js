@@ -1,4 +1,5 @@
 const {Portfolio,Order}=require('../models')
+const order = require('../models/order')
 
 const createPortfolio=async (req,res)=>{
     try{
@@ -24,30 +25,20 @@ const readPortfolioPositions=async (req,res)=>{
     try{
         const {pk}=req.params
         const orders=await Order.findAll({where:{portfolioId:pk}})
-        let positions=Object() 
-        orders?.map((order)=>{
-            if(!(order.equityId in Object.keys(positions))){
-                positions[order.equityId]={}
+        let positions={}
+        orders.map((order)=>{
+            if(!positions[order.equityId]){
+                positions[order.equityId]={
+                    equityId:order.equityId,
+                    price:parseFloat(order.price)
+                }
             }
-            else if((order.equityId.toString() in Object.keys(positions))){
-                positions[order.equityId]={x:'x'}
+            else{
+                positions[order.equityId].price+=parseFloat(order.price)
             }
-            
-            
 
-            // if((order.equityId in Object.keys(positions))){
-            //     res.status(200).json({alert:'x'})
-            // }
-            // if(!(order.equityId in Object.keys(positions)))
-            // positions[order.equityId]={
-            //     opened:order.date,
-            //     equityId:order.equityId,
-            //     quantity:order.quantity,
-            //     initial:order.price,
-            //     current:order.price
-            // }
         })
-        res.status(200).json(Object.keys(positions))
+        res.status(200).json(positions)
     }catch(error){throw error}
 
 }
