@@ -1,11 +1,11 @@
+const equity=require('./equity')
+const order=require('./order')
 const portfolio=require('./portfolio')
-const position=require('./position')
-const symbol=require('./symbol')
-const trade=require('./trade')
+const quote=require('./quote')
 
 module.exports={
+    equity,
+    order,
     portfolio,
-    position,
-    symbol,
-    trade
+    quote
 }
