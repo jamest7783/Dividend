@@ -40,10 +40,6 @@ const readPortfolioPositions=async (req,res)=>{
     }catch(error){throw error}
 
 }
-
-
-
-
 const updatePortfolio=async (req,res)=>{
     try{
         const {pk}=req.params
