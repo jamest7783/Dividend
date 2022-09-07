@@ -26,10 +26,12 @@ const readPortfolioPositions=async (req,res)=>{
         const {pk}=req.params
         let positions=Object()
         let equity=Object()
+        let tkrArray=Array()
         const orders=await Order.findAll({where:{portfolioId:pk}})
         for(let i=0;i<orders.length;i++){
             equity=await Equity.findByPk(orders[i].equityId)
             if(!positions[equity.ticker]){
+                tkrArray.push(equity.ticker)
                 positions[equity.ticker]={
                     numShares:orders[i].numShares,
                     avgPricePerShare:orders[i].pricePerShare,
@@ -42,16 +44,10 @@ const readPortfolioPositions=async (req,res)=>{
                 positions[equity.ticker].numShares+=orders[i].numShares
             }
         }
-        for(let pos of Object.keys(positions)) {
-            console.log(positions[pos].currentPrice)
-            // positions[key].currentPrice=await yahooFinance.quote({
-            //     symbol:equity.ticker,modules:['financialData']},(err,quote)=>{
-            //         return quote.financialData.currentPrice
-            // })
+        const lastCloseObj=await yahooFinance.quote({symbols:tkrArray,modules:['financialData']},(err,quote)=>{})
+        for(pos of Object.keys(positions)){
+            positions[pos].currentPrice=lastCloseObj[pos].financialData.currentPrice
         }
-
-            
-        
         res.status(200).json(positions)
     }catch(error){throw error}
 
