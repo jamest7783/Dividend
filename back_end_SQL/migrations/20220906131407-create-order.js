@@ -11,10 +11,10 @@ module.exports = {
       date: {
         type: Sequelize.INTEGER
       },
-      quantity: {
+      numShares: {
         type: Sequelize.INTEGER
       },
-      price: {
+      pricePerShare: {
         type: Sequelize.FLOAT
       },
       portfolioId: {
