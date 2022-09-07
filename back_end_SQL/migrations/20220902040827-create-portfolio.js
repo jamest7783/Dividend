@@ -15,7 +15,7 @@ module.exports = {
         type: Sequelize.STRING
       },
       capital: {
-        type: Sequelize.DECIMAL
+        type: Sequelize.FLOAT
       },
       createdAt: {
         allowNull: false,

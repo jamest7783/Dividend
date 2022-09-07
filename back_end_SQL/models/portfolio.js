@@ -13,18 +13,9 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Portfolio.init({
-    name:{
-      type:DataTypes.STRING,
-      defaultValue:'portfolio'
-    },
-    description:{
-      type:DataTypes.STRING,
-      defaultValue:''
-    },
-    capital:{
-      type:DataTypes.DECIMAL,
-      defaultValue:0
-    }
+    name:{type:DataTypes.STRING,defaultValue:'portfolio'},
+    description:{type:DataTypes.STRING,defaultValue:''},
+    capital:{type:DataTypes.FLOAT,defaultValue:0}
   }, {
     sequelize,
     modelName: 'Portfolio',

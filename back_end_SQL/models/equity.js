@@ -15,8 +15,8 @@ module.exports = (sequelize, DataTypes) => {
   }
   Equity.init({
     ticker: DataTypes.STRING,
-    company: DataTypes.STRING,
-    icon: DataTypes.STRING
+    company:{type:DataTypes.STRING,defaultValue:'company name'},  
+    icon:{type:DataTypes.STRING,defaultValue:'icon url'},
   }, {
     sequelize,
     modelName: 'Equity',
