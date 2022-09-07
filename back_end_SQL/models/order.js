@@ -8,7 +8,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Order.init({
-    date: DataTypes.INTEGER,
+    date: DataTypes.STRING,
     numShares: DataTypes.INTEGER,
     pricePerShare: DataTypes.FLOAT,
     portfolioId:{

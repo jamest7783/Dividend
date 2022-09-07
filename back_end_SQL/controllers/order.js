@@ -13,28 +13,13 @@ const createOrder=async (req,res)=>{
         }else{
             portfolio.capital-=(pricePerShare*numShares)
             portfolio.save()
-
             const order=await Order.create({
                 date,numShares,pricePerShare,portfolioId,equityId:equity.id
             })
 
-
-
-
-            return res.status(200).json(portfolio.capital)
+            return res.status(200).json(portfolio.capital,order)
         }
-
-
-        const order=await Order.create({
-            date,               // will be most recent date on daily chart
-            quantity,           // chosen with form
-            price,              // passed from chart data
-            portfolioId,        // passed from state 
-            equityId:equity.id  // passed from chart data/state 
-        })
-        !order?
-        res.status(200).json({alert:'Error - Order Canceled'}):
-        res.status(200).json(order)
+        
     }catch(error){throw error}
 }
 
