@@ -6,7 +6,6 @@ const createOrder=async (req,res)=>{
         let equity=await Equity.findOrCreate({where:{ticker},defaults:{ticker}})
         equity=equity[0]
         const portfolio=await Portfolio.findByPk(portfolioId)
-        
         if(portfolio.capital>(pricePerShare*numShares)){
             try{
                 portfolio.capital-=(pricePerShare*numShares)

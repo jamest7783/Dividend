@@ -1,6 +1,5 @@
-const { portfolio } = require('.')
 const {Equity,Portfolio,Order}=require('../models')
-const order = require('../models/order')
+const yahooFinance=require('yahoo-finance')
 
 const createPortfolio=async (req,res)=>{
     try{
@@ -34,6 +33,7 @@ const readPortfolioPositions=async (req,res)=>{
                 positions[equity.ticker]={
                     numShares:orders[i].numShares,
                     avgPricePerShare:orders[i].pricePerShare,
+                    currentPrice:0
                 }
             }else{
                 positions[equity.ticker].avgPricePerShare= 
@@ -42,6 +42,16 @@ const readPortfolioPositions=async (req,res)=>{
                 positions[equity.ticker].numShares+=orders[i].numShares
             }
         }
+        for(let pos of Object.keys(positions)) {
+            console.log(positions[pos].currentPrice)
+            // positions[key].currentPrice=await yahooFinance.quote({
+            //     symbol:equity.ticker,modules:['financialData']},(err,quote)=>{
+            //         return quote.financialData.currentPrice
+            // })
+        }
+
+            
+        
         res.status(200).json(positions)
     }catch(error){throw error}
 

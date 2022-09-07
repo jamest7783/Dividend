@@ -11,5 +11,7 @@ router.get('/portfolio/read/:pk/positions',portfolio.readPortfolioPositions)
 
 router.post('/order/create',order.createOrder)
 
+router.get('/equity/:pk/quotes',quote.readQuotes)
+
 
 module.exports=router
