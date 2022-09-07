@@ -1,3 +1,4 @@
+const { portfolio } = require('.')
 const {Equity,Portfolio,Order}=require('../models')
 const order = require('../models/order')
 
@@ -23,18 +24,23 @@ const readPortfolio=async (req,res)=>{
 }
 const readPortfolioPositions=async (req,res)=>{
     try{
-        let positions={}
-        let equity={}
         const {pk}=req.params
+        let positions=Object()
+        let equity=Object()
         const orders=await Order.findAll({where:{portfolioId:pk}})
         for(let i=0;i<orders.length;i++){
             equity=await Equity.findByPk(orders[i].equityId)
             if(!positions[equity.ticker]){
                 positions[equity.ticker]={
                     numShares:orders[i].numShares,
-                    pricePerShare:orders[i].pricePerShare
+                    avgPricePerShare:orders[i].pricePerShare,
                 }
-            }else{positions[equity.ticker].price+=orders[i].price}
+            }else{
+                positions[equity.ticker].avgPricePerShare= 
+                    ((positions[equity.ticker].avgPricePerShare*positions[equity.ticker].numShares)+
+                    (orders[i].pricePerShare*orders[i].numShares))/(positions[equity.ticker].numShares+orders[i].numShares)
+                positions[equity.ticker].numShares+=orders[i].numShares
+            }
         }
         res.status(200).json(positions)
     }catch(error){throw error}
