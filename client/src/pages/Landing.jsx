@@ -1,7 +1,10 @@
+import Chart from '../components/Chart'
 const Landing=()=>{
 
     return(
-        <div id='landing'></div>
+        <div id='landing'>
+            <Chart />
+        </div>
     )
 }
 
