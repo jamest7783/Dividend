@@ -31,10 +31,10 @@ const readPortfolioPositions=async (req,res)=>{
             equity=await Equity.findByPk(orders[i].equityId)
             if(!positions[equity.ticker]){
                 positions[equity.ticker]={
-                    quantity:orders[i].quantity,
-                    price:parseFloat(orders[i].price)
+                    numShares:orders[i].numShares,
+                    pricePerShare:orders[i].pricePerShare
                 }
-            }else{positions[equity.ticker].price+=parseFloat(orders[i].price)}
+            }else{positions[equity.ticker].price+=orders[i].price}
         }
         res.status(200).json(positions)
     }catch(error){throw error}
