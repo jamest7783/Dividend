@@ -24,7 +24,7 @@
    * node-yahoo-finance 
    * google-news-json 
    * stylized-components
-   * chart.js
+   * chart.js/
 
  
 
