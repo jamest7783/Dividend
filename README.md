@@ -18,7 +18,7 @@
 * Javascript, HTML, CSS 
 * React
 * Express
-* MongoDB & PostGreSQL
+* SQL & NoSQL (MongoDB + PostGreSQL)
 
 * Libraries
    * node-yahoo-finance 
@@ -26,7 +26,7 @@
    * stylized-components
    * chart.js
 
-
+ 
 
 ****
 
