@@ -15,11 +15,9 @@ router.get('/insight/read/:id',insight.readInsight)
 router.put('/insight/update/:id',stripToken,verifyToken,insight.updateInsight)
 router.delete('/insight/delete/:id',stripToken,verifyToken,insight.deleteInsight)
 
-/* AUTH */
 router.post('/investor/register',investor.register)
 router.post('/investor/login',investor.login)
 router.put('/investor/update-password',stripToken,verifyToken,investor.updatePassword)
-// router.post('/investor/create',investor.createInvestor)
 
 router.get('/investor/all',investor.allInvestors)
 router.get('/investor/read/:id',investor.readInvestor)

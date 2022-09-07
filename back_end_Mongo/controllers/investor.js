@@ -47,13 +47,6 @@ const allInvestors=async (req,res)=>{
         res.status(200).json(investors)
     }catch(error){throw error}
 }
-const createInvestor=async (req,res)=>{
-    try{
-        const {first_name,last_name,email,icon,password,location,capital}=req.body
-        const investor=await Investor.create({first_name,last_name,email,icon,password,location,capital}) 
-        res.status(200).json(investor)
-    }catch(error){throw error}
-}
 const readInvestor=async (req,res)=>{
     try{
         const {id}=req.params
@@ -89,7 +82,6 @@ module.exports={
     updatePassword,
 
     allInvestors,
-    createInvestor,
     readInvestor,
     updateInvestor,
     deleteInvestor
