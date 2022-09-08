@@ -8,17 +8,18 @@ body{
     background:rgb(228, 228, 228);
     display:flex;
     justify-content:center;
+    align-items:flex-start;
+}
+#nav{
+    margin:0;
+    height:5%;
+    width:100%;
+    background:transparent;
+    border:1px solid black;
+    display:flex;
+    justify-content:flex-end;
     align-items:center;
 }
-#grid{
-    margin:0;
-    height:75%;
-    width:95%;
-    border:1px solid black;
-    display:grid;
-    grid-template:repeat(25,4%)/repeat(25,4%)
-}
-#nav-container{
-    grid-area:1/1/4/6;
-    background:blue;
+.link{
+    margin-right:2%;
 }

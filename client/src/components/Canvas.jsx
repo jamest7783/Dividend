@@ -5,14 +5,7 @@ const Canvas=()=>{
 
     return(
         <div id='canvas'>
-            {/* <Nav /> */}
-            <div id='grid'>
-                <div id='nav-container'>
-                    <Nav />
-                </div>
-
-
-            </div>
+           <Nav />
         </div>
     )
 }
