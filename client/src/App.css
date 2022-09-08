@@ -1,3 +1,8 @@
+*{
+    font-family:sans-serif;
+    font-size:small;
+}
+
 body{
     margin:0;
 }
@@ -6,7 +11,13 @@ body{
     width:100vw;
     background:white;
     display:grid;
-    grid-template:5% 80% 15%/10% 80% 10%;
+    grid-template:
+        minmax(50px,5%) 
+        minmax(700px,80%) 
+        15%/
+        7.25% 
+        minmax(700px,1fr) 
+        7.25%;
 }
 #header{
     grid-area:1/2/1/2;
@@ -32,10 +43,44 @@ body{
     justify-content:center;
     align-items:center;
 }
-#login{
+#login,#register{
     height:50%;
     width:40%;
+    max-width:350px;
     border:1px solid black;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
 }
+#login-form-icon{
+    margin-bottom:4%;
+}
+#switch-to-register-wrapper{
+    display:flex;
+    justify-content:space-around;
+    align-items:flex-end;
+}
+#sign-up{
+    background:transparent;
+    border:none;
+    font-weight:bold;
+}
+#sign-up:hover{
+    color:white;
+    background:black;
+}
+#login-form-wrapper{
+    height:80%;
+    width:80%;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-around;
+}
+#login-input-wrapper{
+    display:flex;
+    flex-direction:column;
+}
+
 
  

@@ -16,7 +16,10 @@ const App=()=>{
         <Nav setFocus={setFocus}/> 
       </div>
       <Routes>
-        <Route path='/' element={<Canvas focus={focus}/>}/>
+        <Route path='/' element={<Canvas 
+          focus={focus}
+          setFocus={setFocus}
+        />}/>
       </Routes>
     </div>
   )
