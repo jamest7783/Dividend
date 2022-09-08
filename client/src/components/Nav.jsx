@@ -1,11 +1,13 @@
-const Nav=()=>{
+const Nav=({setFocus})=>{
+
+    const show=(focus)=>{setFocus(focus)}
 
     return(
         <div id='nav'>
-            <button className="link">Community</button>
-            <button className="link">Charts</button>
-            <button className="link">Market News</button>
-            <button className="link">Account</button>
+                <button className="link">news</button>
+                <button className="link">charts</button>
+                <button className="link">community</button>
+                <button className="link" onClick={(e)=>{show('login')}}>account</button>
         </div>
     )
 }

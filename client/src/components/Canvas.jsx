@@ -1,11 +1,11 @@
-import Chart from './Chart'
-import Nav from './Nav'
+import Login from '../components/Login'
 
-const Canvas=()=>{
+const Canvas=({focus})=>{
 
     return(
         <div id='canvas'>
-           <Chart />
+            {focus==='login' && <Login />}
+         
         </div>
     )
 }

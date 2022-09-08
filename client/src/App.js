@@ -1,14 +1,22 @@
 import './App.css'
 import {Routes,Route} from 'react-router-dom'
-import Canvas from './components/Canvas'
+import {useState} from 'react'
+import Search from './components/Search'
 import Nav from './components/Nav'
+import Canvas from './components/Canvas'
 
 const App=()=>{
+
+  const [focus,setFocus]=useState(null)
+
   return(
-    <div>
-      <Nav />
+    <div id='app'>
+      <div id='header'>
+        <Search />
+        <Nav setFocus={setFocus}/> 
+      </div>
       <Routes>
-        <Route path='/' element={<Canvas/>}/>
+        <Route path='/' element={<Canvas focus={focus}/>}/>
       </Routes>
     </div>
   )
