@@ -5,9 +5,8 @@ const Canvas=({focus,setFocus})=>{
 
     return(
         <div id='canvas'>
-            {focus==='login' && <Login setFocus={setFocus}/>}
-            {focus==='register' && <Register />} 
-         
+            {focus==='login'&&<Login setFocus={setFocus}/>}
+            {focus==='register'&&<Register/>} 
         </div>
     )
 }
