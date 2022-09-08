@@ -10,17 +10,15 @@ body{
     justify-content:center;
     align-items:center;
 }
-#chart-container{
+#grid{
     margin:0;
-    height:90vh;
-    width:99vw;
+    height:75%;
+    width:95%;
     border:1px solid black;
-    overflow:hidden;
-    display:flex;
-} 
-
-#chart{
-    height:99%;
-    width:99%;
+    display:grid;
+    grid-template:repeat(25,4%)/repeat(25,4%)
+}
+#nav-container{
+    grid-area:1/1/4/6;
     background:blue;
 }

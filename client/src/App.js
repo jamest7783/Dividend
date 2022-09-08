@@ -7,7 +7,6 @@ const App=()=>{
     <div>
       <Routes>
         <Route path='/' element={<Canvas/>}/>
-        <Route/>
       </Routes>
     </div>
   )
