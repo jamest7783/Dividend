@@ -1,7 +1,10 @@
 const Chart=()=>{
 
     return(
-        <div id='chart'>
+        <div id='chart-container'>
+            <div id='chart'>
+
+            </div>
 
         </div>
     )

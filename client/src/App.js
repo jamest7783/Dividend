@@ -1,14 +1,12 @@
 import './App.css'
 import {Routes,Route} from 'react-router-dom'
-import Nav from './components/Nav'
-import Landing from './pages/Landing'
+import Canvas from './components/Canvas'
 
 const App=()=>{
   return(
     <div>
-      <Nav/>
       <Routes>
-        <Route path='/' element={<Landing/>}/>
+        <Route path='/' element={<Canvas/>}/>
         <Route/>
       </Routes>
     </div>
