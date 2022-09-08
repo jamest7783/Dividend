@@ -5,7 +5,7 @@ const Canvas=()=>{
 
     return(
         <div id='canvas'>
-           <Nav />
+           <Chart />
         </div>
     )
 }
