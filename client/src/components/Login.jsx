@@ -1,17 +1,15 @@
 import {useState} from 'react'
 import {logIn} from '../services/auth'
 
-const Login=({setFocus,setUser,toggleAuthenticated})=>{
+const Login=({setFocus,setInvestor,toggleAuthenticated})=>{
 
     const [form,setForm]=useState({email:'',password:''})
     const handleChange=(e)=>{setForm({...form,[e.target.name]:e.target.value})}
     const handleSubmit=async (e)=>{
         e.preventDefault()
-        const payload=await logIn({
-            email:form.email,passwordInput:form.password
-        })
+        const payload=await logIn({email:form.email,passwordInput:form.password})
         setForm({email:'',password:''})
-        setUser(payload)
+        setInvestor(payload)
         toggleAuthenticated(true)
         setFocus('dashboard')
     }

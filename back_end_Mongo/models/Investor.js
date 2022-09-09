@@ -3,8 +3,9 @@ const {Schema}=require('mongoose')
 
 const Investor=new Schema(
     {
-        first_name:{type:String,required:true},
-        last_name:{type:String,required:true},
+        first_name:{type:String},
+        last_name:{type:String},
+        user_name:{type:String},
         email:{type:String,required:true},
         icon:{type:String,required:true,default:'url()'},
         passwordDigest:{type:String,required:true,default:'needs to be changed (NO AUTH YET)'},

@@ -1,6 +1,7 @@
 import './App.css'
 import {Routes,Route} from 'react-router-dom'
-import {useState} from 'react'
+import {useState,useEffect} from 'react'
+import {checkSession} from './services/auth'
 import Search from './components/Search'
 import Nav from './components/Nav'
 import Canvas from './components/Canvas'
@@ -8,8 +9,17 @@ import Canvas from './components/Canvas'
 const App=()=>{
 
   const [authenticated,toggleAuthenticated]=useState(false)
-  const [user,setUser]=useState(null)
+  const [investor,setInvestor]=useState(null)
   const [focus,setFocus]=useState(null)
+  const checkToken=async ()=>{
+    const investor=await checkSession()
+    setInvestor(investor)
+    toggleAuthenticated(true)
+  }
+  useEffect(()=>{
+    const token=localStorage.getItem('token')
+    if(token){checkToken()}
+  },[])
 
   return(
     <div id='app'>
@@ -19,7 +29,7 @@ const App=()=>{
       </div>
       <Routes>
         <Route path='/' element={<Canvas 
-          setUser={setUser}
+          setInvestor={setInvestor}
           toggleAuthenticated={toggleAuthenticated}
           focus={focus}
           setFocus={setFocus}

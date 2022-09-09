@@ -7,7 +7,7 @@ import News from './News'
 import Portfolio from './Portfolio'
 import Register from '../components/Register'
  
-const Canvas=({focus,setFocus,setUser,toggleAuthenticated})=>{
+const Canvas=({focus,setFocus,setInvestor,toggleAuthenticated})=>{
 
     return(
         <div id='canvas'>
@@ -17,7 +17,7 @@ const Canvas=({focus,setFocus,setUser,toggleAuthenticated})=>{
             {focus==='dashboard'&&<Dashboard/>}
             {focus==='login'&&<Login 
                 setFocus={setFocus}
-                setUser={setUser}
+                setInvestor={setInvestor}
                 toggleAuthenticated={toggleAuthenticated}
             />}
             {focus==='news'&&<News/>}

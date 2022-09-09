@@ -28,6 +28,10 @@ const login=async (req,res)=>{
         }else{res.status(401).json({alert:'Unauthorized/Incorrect Password'})}
     }catch(error){throw error}
 }
+const checkSession=async (req,res)=>{
+    const {payload}=res.locals
+    res.status(200).json(payload)
+}
 const updatePassword=async (req,res)=>{
     try{
         const {email,oldPassword,newPassword}=req.body
@@ -79,6 +83,7 @@ module.exports={
     
     register,
     login,
+    checkSession,
     updatePassword,
 
     allInvestors,
