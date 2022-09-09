@@ -135,6 +135,11 @@ input{
     margin-bottom:10px;
     height:12%;
     background:white;
+    display:flex;
+    justify-content:space-between;
+    padding-right:10px;
+    padding-left:10px;
+    align-items:center;
 }
 #positions{
     margin:10px;

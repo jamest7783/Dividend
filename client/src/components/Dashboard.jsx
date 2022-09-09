@@ -1,3 +1,5 @@
+import {useState,useEffect} from 'react'
+import axios from 'axios'
 import Watchlist from './Watchlist'
 import EquityChart from './EquityChart'
 import DiversificationRadial from './DiversificationRadial'

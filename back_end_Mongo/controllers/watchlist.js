@@ -18,7 +18,6 @@ const createWatchlist=async (req,res)=>{
 const readWatchlist=async (req,res)=>{
     try{
         const {id}=req.params
-        console.log(id)
         const watchlist=await Watchlist.findById(id)
         !watchlist?
         res.status(200).json({alert:`Watchlist with ID: ${id} not found.`}):

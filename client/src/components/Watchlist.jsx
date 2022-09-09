@@ -1,27 +1,34 @@
+import {useEffect,useState} from 'react'
+import axios from 'axios'
+
 const Watchlist=({investor})=>{
-    
-    console.log(investor.watchlists)
+
+    const [watchlistItems,setWatchlistItems]=useState([])
+    useEffect(()=>{
+        const fillWatchlist=async ()=>{
+            const res=await axios.get(`http://localhost:3001/api/watchlist/read/${investor.watchlists[0]}`)
+            console.log(res)
+            for(let symbol in res.data.symbols){
+                const watchlistData=await axios.post(
+                    'http://localhost:3002/api/equity/historical',{ticker:res.data.symbols[symbol],period:'d'})
+                let sym=watchlistData.data[0].symbol
+                let close=watchlistData.data[0].close
+                watchlistItems.push({[`${sym}`]:close})
+            } 
+        } 
+        fillWatchlist()
+    },[watchlistItems])
 
     return(
         <div id='watchlist'>
-            <div className='watchlist-item'></div>
-            <div className='watchlist-item'></div>
-            <div className='watchlist-item'></div>
-            <div className='watchlist-item'></div>
-            <div className='watchlist-item'></div>
-            <div className='watchlist-item'></div>
-            <div className='watchlist-item'></div>
-            <div className='watchlist-item'></div>
-            <div className='watchlist-item'></div>
-            <div className='watchlist-item'></div>
-            <div className='watchlist-item'></div>
-            <div className='watchlist-item'></div>
-            <div className='watchlist-item'></div>
-            <div className='watchlist-item'></div>
-            <div className='watchlist-item'></div>
-            <div className='watchlist-item'></div>
-            <div className='watchlist-item'></div>
-            <div className='watchlist-item'></div>
+            {watchlistItems.map((item)=>(
+                <div className='watchlist-item'>
+                    <div>{Object.keys(item)}</div> 
+                    <div>{Object.values(item)}</div> 
+                </div>
+                 
+            ))}
+  
         </div>
     )
 }
