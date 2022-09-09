@@ -37,14 +37,21 @@ body{
 }
 #search{
     margin-left:10px;
+    width:30%;
+    border-bottom:2px solid black;
+    display:flex;
+}
+#search-input{
+    background:transparent;
+    border:none;
 }
 #canvas{
     grid-area:2/2/4/2;
-    margin-top:1%;
+    margin-top:2%;
     /* border:1px solid black; */
     display:flex;
     justify-content:center;
-    align-items:center;
+    align-items:top;
 }
 #login,#register{
     height:50%;
@@ -92,7 +99,7 @@ body{
 input{
     width:100%;
 }
-#dashboard{
+#glass{
     height:90%;
     width:100%;
     display:grid;

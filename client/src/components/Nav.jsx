@@ -2,10 +2,11 @@ const Nav=({setFocus})=>{
 
     return(
         <div id='nav'>
-                <button className="link">news</button>
-                <button className="link">charts</button>
-                <button className="link">community</button>
-                <button className="link">portfolio</button>
+                <button className="link" onClick={(e)=>{setFocus('news')}}>news</button>
+                <button className="link" onClick={(e)=>{setFocus('charts')}}>charts</button>
+                <button className="link" onClick={(e)=>{setFocus('community')}}>community</button>
+                <button className="link" onClick={(e)=>{setFocus('portfolio')}}>portfolio</button>
+                <button className="link" onClick={(e)=>{setFocus('dashboard')}}>dashboard</button>
                 <button className="link" onClick={(e)=>{setFocus('login')}}>account</button>
         </div>
     )

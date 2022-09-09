@@ -8,7 +8,7 @@ import Positions from './Positions'
 const Dashboard=()=>{
 
     return(
-        <div id='dashboard'>
+        <div id='glass'>
             <Watchlist/>
             <EquityChart/>
             <DiversificationRadial/>
