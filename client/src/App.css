@@ -124,6 +124,9 @@ input{
     margin:10px;
     background:transparent;
     grid-area:1/4/3/5;
+    overflow:scroll;
+    scrollbar-width:none;
+    
 }
 .watchlist-item{
     margin-bottom:10px;
@@ -139,6 +142,26 @@ input{
     margin:10px;
     background:white;
     grid-area:3/4/5/5;
+}
+#chart{
+    margin:10px;
+    grid-area:1/1/4/4;
+    background:white;
+}
+#indicators{
+    margin:10px;
+    grid-area:1/4/4/5;
+    background:white;
+}
+#charts{
+    grid-area:4/1/5/5;
+    display:flex;
+}
+.mini-chart{
+    margin:10px;
+    height:90%;
+    width:20%;
+    background:white;
 }
 
 

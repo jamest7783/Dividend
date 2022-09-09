@@ -9,7 +9,17 @@ const Watchlist=()=>{
             <div className='watchlist-item'></div>
             <div className='watchlist-item'></div>
             <div className='watchlist-item'></div>
-
+            <div className='watchlist-item'></div>
+            <div className='watchlist-item'></div>
+            <div className='watchlist-item'></div>
+            <div className='watchlist-item'></div>
+            <div className='watchlist-item'></div>
+            <div className='watchlist-item'></div>
+            <div className='watchlist-item'></div>
+            <div className='watchlist-item'></div>
+            <div className='watchlist-item'></div>
+            <div className='watchlist-item'></div>
+            <div className='watchlist-item'></div>
         </div>
     )
 }
