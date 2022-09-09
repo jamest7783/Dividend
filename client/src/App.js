@@ -7,6 +7,8 @@ import Canvas from './components/Canvas'
 
 const App=()=>{
 
+  const [authenticated,toggleAuthenticated]=useState(false)
+  const [user,setUser]=useState(null)
   const [focus,setFocus]=useState(null)
 
   return(

@@ -4,6 +4,10 @@ const Register=({setFocus})=>{
 
     const [form,setForm]=useState({email:'',password:''})
     const handleChange=(e)=>{setForm({...form,[e.target.name]:e.target.value})}
+    const handleSubmit=async (e)=>{
+        e.preventDefault()
+        setFocus('login')
+    }
 
     return(
         <div id='register'>
@@ -13,8 +17,6 @@ const Register=({setFocus})=>{
                     Sign In.
                 </button>
             </div>
-
-
             <div id='auth-form-wrapper'>
                 <div id='auth-input-wrapper'>email
                     <input
@@ -38,16 +40,11 @@ const Register=({setFocus})=>{
                 </div>
                 
                 <button 
-                    onClick={(e)=>{setFocus('dashboard')}}
+                    onClick={(e)=>{handleSubmit(e)}}
                     disabled={!form.email||!form.password}>
                     create account
                 </button>
             </div>
-
-
-
-
-
         </div>
     )
 }
