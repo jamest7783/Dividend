@@ -38,7 +38,7 @@ body{
 #canvas{
     grid-area:2/2/4/2;
     margin-top:1%;
-    border:1px solid black;
+    /* border:1px solid black; */
     display:flex;
     justify-content:center;
     align-items:center;
@@ -56,7 +56,7 @@ body{
 #login-form-icon{
     margin-bottom:4%;
 }
-#switch-to-register-wrapper{
+#switch-auth-wrapper{
     display:flex;
     justify-content:space-around;
     align-items:flex-end;
@@ -70,16 +70,49 @@ body{
     color:white;
     background:black;
 }
-#login-form-wrapper{
+#auth-form-wrapper{
     height:80%;
     width:80%;
     display:flex;
     flex-direction:column;
     justify-content:space-around;
+    align-items:center;
 }
-#login-input-wrapper{
+#auth-input-wrapper{
     display:flex;
     flex-direction:column;
+    width:100%;
+}
+#switch-to-login-wrapper{
+    display:flex;
+}
+input{
+    width:100%;
+}
+#dashboard{
+    height:90%;
+    width:100%;
+    display:grid;
+    grid-template:
+        25% 25% 25% 25%/
+        25% 25% 25% 25%; 
+    border:1px solid black;
+}
+#equity-chart{
+    background:blue;
+    grid-area:1/1/3/4;
+}
+#watchlist{
+    background:red;
+    grid-area:1/4/3/5;
+}
+#positions{
+    background:green;
+    grid-area:3/1/5/4;
+}
+#diversification-radial{
+    background:yellow;
+    grid-area:3/4/5/5;
 }
 
 

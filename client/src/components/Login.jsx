@@ -8,14 +8,14 @@ const Login=({setFocus})=>{
     return(
         <div id='login'>
             <div id='login-form-icon'>logo</div>
-            <div id='switch-to-register-wrapper'>
+            <div id='switch-auth-wrapper'>
                 <div>Don't have an account?</div>
                 <button onClick={(e)=>{setFocus('register')}} id='sign-up'>
                     Sign Up.
                 </button>
             </div>
-            <div id='login-form-wrapper'>
-                <div id='login-input-wrapper'>email
+            <div id='auth-form-wrapper'>
+                <div id='auth-input-wrapper'>email
                     <input
                         onChange={handleChange}
                         name='email'
@@ -25,7 +25,7 @@ const Login=({setFocus})=>{
                         required
                     />
                 </div>
-                <div id='login-input-wrapper'>password
+                <div id='auth-input-wrapper'>password
                     <input
                         onChange={handleChange}
                         name='password'
@@ -35,7 +35,9 @@ const Login=({setFocus})=>{
                         required
                     />
                 </div>
-                <button disabled={!form.email||!form.password}>
+                <button 
+                    onClick={(e)=>{setFocus('dashboard')}}
+                    disabled={!form.email||!form.password}>
                     log in
                 </button>
             </div>
