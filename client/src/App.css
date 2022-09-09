@@ -9,7 +9,7 @@ body{
 #app{
     height:100vh;
     width:100vw;
-    background:white;
+    background:linear-gradient(#e6e9f0,#eef1f5);
     display:grid;
     grid-template:
         minmax(50px,5%) 
@@ -29,11 +29,14 @@ body{
     min-width:50%;
     display:flex;
     justify-content:space-between;
-    margin-right:5px;
+    margin-right:10px;
 }
 .link{
     background:transparent;
     border:none;
+}
+#search{
+    margin-left:10px;
 }
 #canvas{
     grid-area:2/2/4/2;
@@ -96,22 +99,38 @@ input{
     grid-template:
         25% 25% 25% 25%/
         25% 25% 25% 25%; 
-    border:1px solid black;
+    background:rgba(255,255,255,0.3);
+    backdrop-filter:blur(10px);
+    border:3px solid rgba(255,255,255,0.15)
 }
 #equity-chart{
-    background:blue;
+    margin:10px;
+    background:white;
     grid-area:1/1/3/4;
 }
+#greeting{
+    font-size:300%;
+    font-family:sans-serif;
+    margin:3% 0 0 3%; 
+}
 #watchlist{
-    background:red;
+    margin:10px;
+    background:transparent;
     grid-area:1/4/3/5;
 }
+.watchlist-item{
+    margin-bottom:10px;
+    height:12%;
+    background:white;
+}
 #positions{
-    background:green;
+    margin:10px;
+    background:white;
     grid-area:3/1/5/4;
 }
 #diversification-radial{
-    background:yellow;
+    margin:10px;
+    background:white;
     grid-area:3/4/5/5;
 }
 
