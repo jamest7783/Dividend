@@ -2,7 +2,7 @@ const Portfolio=()=>{
 
     return(
         <div id='glass'>
-            portfolio
+            <div id='portfolio'></div>
         </div>
     )
 }

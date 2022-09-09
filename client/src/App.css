@@ -51,7 +51,7 @@ body{
     /* border:1px solid black; */
     display:flex;
     justify-content:center;
-    align-items:top;
+    align-items:center;
 }
 #login,#register{
     height:50%;
@@ -162,6 +162,12 @@ input{
     height:90%;
     width:20%;
     background:white;
+}
+#portfolio{
+    margin:10px;
+    grid-area:1/1/5/5;
+    background:white;
+
 }
 
 
