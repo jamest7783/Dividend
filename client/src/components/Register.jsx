@@ -1,4 +1,5 @@
 import {useState} from 'react'
+import {register} from '../services/auth'
 
 const Register=({setFocus})=>{
 
@@ -6,6 +7,13 @@ const Register=({setFocus})=>{
     const handleChange=(e)=>{setForm({...form,[e.target.name]:e.target.value})}
     const handleSubmit=async (e)=>{
         e.preventDefault()
+        await register({
+            first_name:'james',
+            last_name:'jewitt',
+            email:form.email,
+            initialPassword:form.password
+        })
+        setForm({email:'',password:''})
         setFocus('login')
     }
 

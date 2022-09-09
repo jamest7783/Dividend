@@ -7,7 +7,7 @@ import News from './News'
 import Portfolio from './Portfolio'
 import Register from '../components/Register'
  
-const Canvas=({focus,setFocus})=>{
+const Canvas=({focus,setFocus,setUser,toggleAuthenticated})=>{
 
     return(
         <div id='canvas'>
@@ -15,7 +15,11 @@ const Canvas=({focus,setFocus})=>{
             {focus==='charts'&&<Charts/>}
             {focus==='community'&&<Community/>}
             {focus==='dashboard'&&<Dashboard/>}
-            {focus==='login'&&<Login setFocus={setFocus}/>}
+            {focus==='login'&&<Login 
+                setFocus={setFocus}
+                setUser={setUser}
+                toggleAuthenticated={toggleAuthenticated}
+            />}
             {focus==='news'&&<News/>}
             {focus==='portfolio'&&<Portfolio/>}
             {focus==='register'&&<Register setFocus={setFocus}/>} 

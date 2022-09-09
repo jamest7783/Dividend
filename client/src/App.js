@@ -19,6 +19,8 @@ const App=()=>{
       </div>
       <Routes>
         <Route path='/' element={<Canvas 
+          setUser={setUser}
+          toggleAuthenticated={toggleAuthenticated}
           focus={focus}
           setFocus={setFocus}
         />}/>

@@ -1,9 +1,20 @@
 import {useState} from 'react'
+import {logIn} from '../services/auth'
 
-const Login=({setFocus})=>{
+const Login=({setFocus,setUser,toggleAuthenticated})=>{
 
     const [form,setForm]=useState({email:'',password:''})
     const handleChange=(e)=>{setForm({...form,[e.target.name]:e.target.value})}
+    const handleSubmit=async (e)=>{
+        e.preventDefault()
+        const payload=await logIn({
+            email:form.email,passwordInput:form.password
+        })
+        setForm({email:'',password:''})
+        setUser(payload)
+        toggleAuthenticated(true)
+        setFocus('dashboard')
+    }
 
     return(
         <div id='login'>
@@ -36,7 +47,7 @@ const Login=({setFocus})=>{
                     />
                 </div>
                 <button 
-                    onClick={(e)=>{setFocus('dashboard')}}
+                    onClick={(e)=>{handleSubmit(e)}}
                     disabled={!form.email||!form.password}>
                     log in
                 </button>
