@@ -1,8 +1,10 @@
-const EquityChart=()=>{
+const EquityChart=({investor})=>{
+
+    const greeting=`Welcome ${investor.email},`
 
     return(
         <div id='equity-chart'>
-            <div id='greeting'>Welcome James,</div>
+            <div id='greeting'>{greeting}</div>
 
         </div>
     )

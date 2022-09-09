@@ -30,6 +30,7 @@ const App=()=>{
       <Routes>
         <Route path='/' element={<Canvas 
           setInvestor={setInvestor}
+          investor={investor}
           toggleAuthenticated={toggleAuthenticated}
           focus={focus}
           setFocus={setFocus}

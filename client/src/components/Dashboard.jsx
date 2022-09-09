@@ -5,12 +5,12 @@ import Positions from './Positions'
 
 
 
-const Dashboard=()=>{
+const Dashboard=({investor})=>{
 
     return(
         <div id='glass'>
             <Watchlist/>
-            <EquityChart/>
+            <EquityChart investor={investor}/>
             <DiversificationRadial/>
             <Positions/>
         </div>
