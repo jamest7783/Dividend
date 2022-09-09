@@ -3,17 +3,24 @@ import {useEffect,useState} from 'react'
 
 const EquityChart=({investor})=>{
 
-    const [portfolio,setPortfolio]=useState({})
-    useEffect(()=>{
-        // const portfolio=await axios.get('htt')
-    },[])
-
     const greeting=`Welcome ${investor.user_name},`
-
+    const [equity,setEquity]=useState(0)
+    useEffect(()=>{
+        const grabPortfolio=async ()=>{
+            let capital=0
+            for(let i=0;i<investor.portfolios.length;i++){
+                const res=await axios.get(`http://localhost:3002/api/portfolio/read/${investor.portfolios[i]}`)
+                capital+=res.data.capital
+            }
+            setEquity(capital)
+        }
+        grabPortfolio()
+    },[])
 
     return(
         <div id='equity-chart'>
             <div id='greeting'>{greeting}</div>
+            <div id='equity'>Capital ${equity}</div>
 
         </div>
     )
