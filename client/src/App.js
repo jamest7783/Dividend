@@ -11,6 +11,7 @@ const App=()=>{
   const [authenticated,toggleAuthenticated]=useState(false)
   const [investor,setInvestor]=useState(null)
   const [focus,setFocus]=useState(null)
+  const [profile,setProfile]=useState({})
   const checkToken=async ()=>{
     const investor=await checkSession()
     setInvestor(investor)
@@ -25,7 +26,10 @@ const App=()=>{
     <div id='app'>
       <div id='header'>
         <Search />
-        <Nav setFocus={setFocus}/> 
+        <Nav 
+          setFocus={setFocus}
+          authenticated={authenticated}
+        /> 
       </div>
       <Routes>
         <Route path='/' element={<Canvas 

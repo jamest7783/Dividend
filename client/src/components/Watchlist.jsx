@@ -1,4 +1,6 @@
-const Watchlist=()=>{
+const Watchlist=({investor})=>{
+    
+    console.log(investor.watchlists)
 
     return(
         <div id='watchlist'>

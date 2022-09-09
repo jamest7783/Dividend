@@ -3,12 +3,16 @@ import {register} from '../services/auth'
 
 const Register=({setFocus})=>{
 
-    const [form,setForm]=useState({email:'',password:''})
+    const [form,setForm]=useState({user_name:'',email:'',password:'',confirm_password:''})
     const handleChange=(e)=>{setForm({...form,[e.target.name]:e.target.value})}
     const handleSubmit=async (e)=>{
         e.preventDefault()
-        await register({email:form.email,initialPassword:form.password})
-        setForm({email:'',password:''})
+        await register({
+            user_name:form.user_name,
+            email:form.email,
+            initialPassword:form.password
+        })
+        setForm({user_name:'',email:'',password:'',confirm_password:''})
         setFocus('login')
     }
 
@@ -21,6 +25,16 @@ const Register=({setFocus})=>{
                 </button>
             </div>
             <div id='auth-form-wrapper'>
+                <div id='auth-input-wrapper'>user name
+                    <input
+                        onChange={handleChange}
+                        name='user_name'
+                        type='user_name'
+                        placeholder='user_name'
+                        value={form.value}
+                        required
+                    />
+                </div>
                 <div id='auth-input-wrapper'>email
                     <input
                         onChange={handleChange}
@@ -41,7 +55,16 @@ const Register=({setFocus})=>{
                         required
                     />
                 </div>
-                
+                <div id='auth-input-wrapper'>confirm password
+                    <input
+                        onChange={handleChange}
+                        name='confirm_password'
+                        type='confirm_password'
+                        placeholder='confirm_password'
+                        value={form.value}
+                        required
+                    />
+                </div>
                 <button 
                     onClick={(e)=>{handleSubmit(e)}}
                     disabled={!form.email||!form.password}>

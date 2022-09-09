@@ -1,6 +1,7 @@
 const EquityChart=({investor})=>{
 
-    const greeting=`Welcome ${investor.email},`
+    
+    const greeting=`Welcome ${investor.user_name},`
 
     return(
         <div id='equity-chart'>

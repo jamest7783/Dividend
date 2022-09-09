@@ -1,4 +1,4 @@
-const Nav=({setFocus})=>{
+const Nav=({setFocus,authenticated})=>{
 
     return(
         <div id='nav'>
@@ -6,8 +6,10 @@ const Nav=({setFocus})=>{
                 <button className="link" onClick={(e)=>{setFocus('charts')}}>charts</button>
                 <button className="link" onClick={(e)=>{setFocus('community')}}>community</button>
                 <button className="link" onClick={(e)=>{setFocus('portfolio')}}>portfolio</button>
-                <button className="link" onClick={(e)=>{setFocus('dashboard')}}>dashboard</button>
-                <button className="link" onClick={(e)=>{setFocus('login')}}>sign in</button>
+                {authenticated &&
+                    <button className="link" onClick={(e)=>{setFocus('dashboard')}}>dashboard</button>}
+                {!authenticated && 
+                    <button className="link" onClick={(e)=>{setFocus('login')}}>sign in</button>}
         </div>
     )
 }

@@ -18,6 +18,7 @@ router.delete('/insight/delete/:id',stripToken,verifyToken,insight.deleteInsight
 router.post('/investor/register',investor.register)
 router.post('/investor/login',investor.login)
 router.put('/investor/update-password',stripToken,verifyToken,investor.updatePassword)
+router.get('/investor/check-session',stripToken,verifyToken,investor.checkSession)
 
 router.get('/investor/all',investor.allInvestors)
 router.get('/investor/read/:id',investor.readInvestor)

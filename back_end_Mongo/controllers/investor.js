@@ -1,19 +1,28 @@
 const middleware=require('../middleware')
 const Investor=require('../models/Investor')
+const Watchlist=require('../models/Watchlist')
 
 const register=async (req,res)=>{
     try{
-        const {first_name,last_name,email,icon,location,capital,initialPassword}=req.body
+        const {first_name,last_name,user_name,email,icon,location,capital,initialPassword}=req.body
         let digest=await middleware.hash(initialPassword)
         const investor=await Investor.create({
             first_name,
             last_name,
+            user_name,
             email,
             icon,
             location,
             capital,
             passwordDigest:digest
         })
+        const watchlist=await Watchlist.create({
+            creator:investor.id,
+            symbols:['TSLA','AAPL','GME'],
+            followers:[investor.id]
+        })
+        investor.watchlists.push(watchlist.id)
+        investor.save()
         res.status(200).json(investor)
     }catch(error){throw error}
 }
@@ -24,7 +33,7 @@ const login=async (req,res)=>{
         if(investor && (await middleware.compare(passwordInput,investor.passwordDigest))){
             let payload={id:investor.id,email:investor.email}
             let token=middleware.createToken(payload)
-            res.status(200).json({investor:payload,token})
+            res.status(200).json({investor:{...investor._doc,payload,token}})
         }else{res.status(401).json({alert:'Unauthorized/Incorrect Password'})}
     }catch(error){throw error}
 }
@@ -36,7 +45,6 @@ const updatePassword=async (req,res)=>{
     try{
         const {email,oldPassword,newPassword}=req.body
         const investor=await Investor.findOne({email,raw:true})
-        console.log(investor)
         if(investor && (await middleware.compare(oldPassword,investor.passwordDigest))){
             let digest=await middleware.hash(newPassword)
             await investor.update({passwordDigest:digest})

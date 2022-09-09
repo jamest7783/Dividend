@@ -3,13 +3,11 @@ import EquityChart from './EquityChart'
 import DiversificationRadial from './DiversificationRadial'
 import Positions from './Positions'
 
-
-
 const Dashboard=({investor})=>{
 
     return(
         <div id='glass'>
-            <Watchlist/>
+            <Watchlist investor={investor}/>
             <EquityChart investor={investor}/>
             <DiversificationRadial/>
             <Positions/>
