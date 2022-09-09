@@ -35,6 +35,9 @@ body{
     background:transparent;
     border:none;
 }
+.link:hover{
+    font-weight:bold;
+}
 #search{
     margin-left:10px;
     width:30%;
@@ -167,8 +170,47 @@ input{
     margin:10px;
     grid-area:1/1/5/5;
     background:white;
-
 }
+#trending{
+    margin:10px;
+    grid-area:1/1/1/5;
+    display:flex;
+    justify-content:space-between;
+}
+.trending-tile{
+    height:100%;
+    width:23%;
+    background:white;
+}
+#top-performers{
+    margin:10px;
+    margin-top:-1px;
+    width:39%;
+    height:150%;
+    background:transparent;
+}
+.top-performer{
+    background:white;
+    margin:10px;
+    height:300px;
+    width:100%;
+}
+#thread-container{
+    grid-area:2/1/5/5;
+    overflow:scroll;
+    display:flex;
+}
+#threads{
+    height:100%;
+    width:100%;
+}
+#thread{
+    height:30%;
+    width:100%;
+    margin:10px;
+    background:white;
+}
+
 
 
  
