@@ -7,7 +7,6 @@ const Watchlist=({investor})=>{
     useEffect(()=>{
         const fillWatchlist=async ()=>{
             const res=await axios.get(`http://localhost:3001/api/watchlist/read/${investor.watchlists[0]}`)
-            console.log(res)
             for(let symbol in res.data.symbols){
                 const watchlistData=await axios.post(
                     'http://localhost:3002/api/equity/historical',{ticker:res.data.symbols[symbol],period:'d'})

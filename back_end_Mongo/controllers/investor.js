@@ -4,7 +4,7 @@ const Watchlist=require('../models/Watchlist')
 
 const register=async (req,res)=>{
     try{
-        const {first_name,last_name,user_name,email,icon,location,capital,initialPassword}=req.body
+        const {first_name,last_name,user_name,email,icon,portfolios,location,capital,initialPassword}=req.body
         let digest=await middleware.hash(initialPassword)
         const investor=await Investor.create({
             first_name,
@@ -14,6 +14,7 @@ const register=async (req,res)=>{
             icon,
             location,
             capital,
+            portfolios,
             passwordDigest:digest
         })
         const watchlist=await Watchlist.create({

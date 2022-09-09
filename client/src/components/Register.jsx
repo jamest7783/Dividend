@@ -1,5 +1,6 @@
 import {useState} from 'react'
 import {register} from '../services/auth'
+import axios from 'axios'
 
 const Register=({setFocus})=>{
 
@@ -7,10 +8,12 @@ const Register=({setFocus})=>{
     const handleChange=(e)=>{setForm({...form,[e.target.name]:e.target.value})}
     const handleSubmit=async (e)=>{
         e.preventDefault()
+        const portfolio=await axios.post('http://localhost:3002/api/portfolio/create')
         await register({
             user_name:form.user_name,
             email:form.email,
-            initialPassword:form.password
+            initialPassword:form.password,
+            portfolios:[portfolio.data.id]
         })
         setForm({user_name:'',email:'',password:'',confirm_password:''})
         setFocus('login')
