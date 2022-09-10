@@ -229,6 +229,16 @@ input{
     justify-content:center;
     align-items:center;
 }
+#trade-bar{
+    height:100%;
+    width:100%;
+    grid-area:1/4/4/5;
+    background:transparent;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+}
 
  
 
