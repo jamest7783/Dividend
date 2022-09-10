@@ -226,6 +226,7 @@ input{
 }
 #chart{
     display:flex;
+    flex-direction:column;
     justify-content:center;
     align-items:center;
 }
@@ -245,6 +246,9 @@ input{
     border:1px solid black;
 }
 #order-numShares{
+    width:40%
+}
+#main-chart-sym{
     width:40%
 }
 

@@ -5,21 +5,29 @@ const Chart=require('chart.js/auto')
  
 const Charts=({investor})=>{
 
+    const [temp,setTemp]=useState('')
+    const [mainSymbol,setMainSymbol]=useState('TSLA')
     const [order,setOrder]=useState({date:'',numShares:0,pricePerShare:0,portfolioId:0,ticker:''})
     const handleChange=(e)=>{setOrder({...order,[e.target.name]:e.target.value})}
+    const handleSymbol=(e)=>{
+        e.preventDefault()
+        setTemp(e.target.value)
+    }
+    const handleSubmitSymbol=(e)=>{
+        e.preventDefault()
+        setMainSymbol(temp)
+    }
     const handleSubmit=async (e)=>{
         e.preventDefault()
         const res=await axios.post('http://localhost:3002/api/order/create',order)
-        console.log(res)
-
     }
     const [mainChartData,setMainChartData]=useState({labels:[],datasets:[{label:'',data:[]}]})
     const [scrollChartData,setScrollChartData]=useState([])
     useEffect(()=>{
-        let tkr='TSLA'
+        let tkr=mainSymbol
         const getMainChartData=async ()=>{
             let data={labels:[],datasets:[{label:'',data:[]}]}
-            const res=await axios.post('http://localhost:3002/api/equity/historical',{ticker:'TSLA',period:'d'})
+            const res=await axios.post('http://localhost:3002/api/equity/historical',{ticker:mainSymbol,period:'d'})
             data.datasets[0].label=tkr 
             res.data.reverse().map((period)=>{
                 data.labels.push(period.date.substring(0,10))
@@ -53,10 +61,12 @@ const Charts=({investor})=>{
         }
         getMainChartData()
         getScrollChartData()
-    },[])
+    },[mainSymbol])
     return(
         <div id='glass'>
             <div id='chart'>
+                    <input onChange={handleSymbol} id='main-chart-sym' placeholder='symbol'/>  
+                    <button onClick={(e)=>{handleSubmitSymbol(e)}}>view</button>
                 <Line id='main-chart'
                 data={mainChartData}/>
             </div>
@@ -69,7 +79,13 @@ const Charts=({investor})=>{
                 ))}
             </div>
             <div id='trade-bar-container'>
-                    {mainChartData.datasets[0].data[mainChartData.datasets[0].data.length-1]}
+                    <div>
+                        per Share: {mainChartData.datasets[0].data[mainChartData.datasets[0].data.length-1]}
+                    </div>
+                    <div>
+                        cost basis:{mainChartData.datasets[0].data[mainChartData.datasets[0].data.length-1]
+                        *order.numShares}
+                    </div>
                     <input 
                         id='order-numShares'
                         onChange={handleChange}
