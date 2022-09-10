@@ -1,5 +1,3 @@
-import {useState,useEffect} from 'react'
-import axios from 'axios'
 import Watchlist from './Watchlist'
 import EquityChart from './EquityChart'
 import DiversificationRadial from './DiversificationRadial'
@@ -11,7 +9,7 @@ const Dashboard=({investor})=>{
         <div id='glass'>
             <Watchlist investor={investor}/>
             <EquityChart investor={investor}/>
-            <DiversificationRadial/>
+            <DiversificationRadial investor={investor}/>
             <Positions investor={investor}/>
         </div>
     )
