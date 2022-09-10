@@ -3,20 +3,33 @@ import {useState,useEffect, useDebugValue} from 'react'
 import {Line} from 'react-chartjs-2'
 const Chart=require('chart.js/auto')
  
-const Charts=()=>{
+const Charts=({investor})=>{
 
+    const [order,setOrder]=useState({date:'',numShares:0,pricePerShare:0,portfolioId:0,equityId:0})
+    const handleChange=(e)=>{setOrder({...order,[e.target.name]:e.target.value})}
+    const handleSubmit=async (e)=>{
+        e.preventDefault()
+    }
     const [mainChartData,setMainChartData]=useState({labels:[],datasets:[{label:'',data:[]}]})
-    const [scrollChartData,setScrollChartData]=useState(Array(5).fill({labels:[],datasets:[{label:'',data:[]}]}))
+    const [scrollChartData,setScrollChartData]=useState([])
     useEffect(()=>{
+        let tkr='TSLA'
         const getMainChartData=async ()=>{
             let data={labels:[],datasets:[{label:'',data:[]}]}
             const res=await axios.post('http://localhost:3002/api/equity/historical',{ticker:'TSLA',period:'d'})
-            data.datasets[0].label='TSLA'
+            data.datasets[0].label=tkr
             res.data.reverse().map((period)=>{
                 data.labels.push(period.date.substring(0,10))
                 data.datasets[0].data.push(period.close) 
             })
             setMainChartData(data)
+            setOrder({
+                date:data.labels[data.labels.length-1],
+                numShares:0,
+                pricePerShare:data.datasets[0].data[data.datasets[0].data.length-1],
+                portfolioId:investor.portfolios[0],
+                equityId:0
+            })
         }
         const getScrollChartData=async ()=>{
             let scrollData=[{labels:[],datasets:[{label:'',data:[]}]},{labels:[],datasets:[{label:'',data:[]}]},{labels:[],datasets:[{label:'',data:[]}]},{labels:[],datasets:[{label:'',data:[]}]},{labels:[],datasets:[{label:'',data:[]}]}]
@@ -24,7 +37,7 @@ const Charts=()=>{
             const res=await axios.post(
             'http://localhost:3002/api/equity/historical/batch',{
                 tickers,
-                period:'w'
+                period:'m'
             })
             Object.keys(res.data).map((tkr,i)=>{
                 scrollData[i].datasets[0].label=tkr
@@ -51,16 +64,20 @@ const Charts=()=>{
                         <Line data={unit}/>
                     </div>
                 ))}
-                <div className='mini-chart'></div>
-                <div className='mini-chart'></div>
-                <div className='mini-chart'></div>
-                <div className='mini-chart'></div>
-                <div className='mini-chart'></div>
             </div>
-            <div id='trade-bar'>
-                    <div>{mainChartData.datasets[0].label}</div>
-
-                    <div></div>
+            <div id='trade-bar-container'>
+                    <div>trade</div>
+                    {mainChartData.datasets[0].data[mainChartData.datasets[0].data.length-1]}
+                    
+                    <input
+                        onChange={handleChange}
+                        name='numShares'
+                        type='numShares'
+                        placeholder='quantity'
+                        value={order.numShares}
+                    />   
+                 
+               
             </div>
         </div>
     )

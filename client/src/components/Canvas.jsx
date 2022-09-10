@@ -13,7 +13,9 @@ const Canvas=({focus,setFocus,setInvestor,toggleAuthenticated,investor})=>{
     return(
         <div id='canvas'>
             {focus==='account'&&<Account/>}
-            {focus==='charts'&&<Charts/>}
+            {focus==='charts'&&<Charts
+                investor={investor}
+            />}
             {focus==='community'&&<Community/>}
             {focus==='dashboard'&&<Dashboard
                 investor={investor}

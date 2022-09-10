@@ -229,15 +229,20 @@ input{
     justify-content:center;
     align-items:center;
 }
-#trade-bar{
+#trade-bar-container{
     height:100%;
     width:100%;
     grid-area:1/4/4/5;
     background:transparent;
     display:flex;
     flex-direction:column;
-    justify-content:center;
+    justify-content:space-around;
     align-items:center;
+}
+#trade-bar{
+    height:500px;
+    width:150px;
+    border:1px solid black;
 }
 
  
