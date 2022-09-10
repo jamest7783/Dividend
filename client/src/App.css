@@ -236,13 +236,16 @@ input{
     background:transparent;
     display:flex;
     flex-direction:column;
-    justify-content:space-around;
+    justify-content:center;
     align-items:center;
 }
 #trade-bar{
     height:500px;
     width:150px;
     border:1px solid black;
+}
+#order-numShares{
+    width:40%
 }
 
  

@@ -5,10 +5,13 @@ const Chart=require('chart.js/auto')
  
 const Charts=({investor})=>{
 
-    const [order,setOrder]=useState({date:'',numShares:0,pricePerShare:0,portfolioId:0,equityId:0})
+    const [order,setOrder]=useState({date:'',numShares:0,pricePerShare:0,portfolioId:0,ticker:''})
     const handleChange=(e)=>{setOrder({...order,[e.target.name]:e.target.value})}
     const handleSubmit=async (e)=>{
         e.preventDefault()
+        const res=await axios.post('http://localhost:3002/api/order/create',order)
+        console.log(res)
+
     }
     const [mainChartData,setMainChartData]=useState({labels:[],datasets:[{label:'',data:[]}]})
     const [scrollChartData,setScrollChartData]=useState([])
@@ -17,18 +20,18 @@ const Charts=({investor})=>{
         const getMainChartData=async ()=>{
             let data={labels:[],datasets:[{label:'',data:[]}]}
             const res=await axios.post('http://localhost:3002/api/equity/historical',{ticker:'TSLA',period:'d'})
-            data.datasets[0].label=tkr
+            data.datasets[0].label=tkr 
             res.data.reverse().map((period)=>{
                 data.labels.push(period.date.substring(0,10))
                 data.datasets[0].data.push(period.close) 
             })
             setMainChartData(data)
-            setOrder({
+            setOrder({...order,
                 date:data.labels[data.labels.length-1],
                 numShares:0,
                 pricePerShare:data.datasets[0].data[data.datasets[0].data.length-1],
                 portfolioId:investor.portfolios[0],
-                equityId:0
+                ticker:tkr
             })
         }
         const getScrollChartData=async ()=>{
@@ -66,16 +69,18 @@ const Charts=({investor})=>{
                 ))}
             </div>
             <div id='trade-bar-container'>
-                    <div>trade</div>
                     {mainChartData.datasets[0].data[mainChartData.datasets[0].data.length-1]}
-                    
-                    <input
+                    <input 
+                        id='order-numShares'
                         onChange={handleChange}
                         name='numShares'
                         type='numShares'
                         placeholder='quantity'
                         value={order.numShares}
                     />   
+                    <button onClick={(e)=>{handleSubmit(e)}}>
+                        Submit Order
+                    </button>
                  
                
             </div>
