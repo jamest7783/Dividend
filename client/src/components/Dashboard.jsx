@@ -12,7 +12,7 @@ const Dashboard=({investor})=>{
             <Watchlist investor={investor}/>
             <EquityChart investor={investor}/>
             <DiversificationRadial/>
-            <Positions/>
+            <Positions investor={investor}/>
         </div>
     )
 }

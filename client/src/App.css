@@ -251,6 +251,10 @@ input{
 #main-chart-sym{
     width:40%
 }
+#position{
+    display:flex;
+    justify-content:space-around;
+}
 
  
 
