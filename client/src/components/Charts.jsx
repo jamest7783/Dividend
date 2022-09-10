@@ -1,9 +1,23 @@
+import axios from 'axios'
+import {useState,useEffect} from 'react'
 import {Line} from 'react-chartjs-2'
 const Chart=require('chart.js/auto')
  
-
-
 const Charts=()=>{
+
+    const [mainChartData,setMainChartData]=useState({})
+    useEffect(()=>{
+        const getMainChartData=async ()=>{
+            const res=await axios.post('http://localhost:3002/api/equity/historical',{ticker:'TSLA',period:'d'})
+            console.log(res.data )
+        }
+        getMainChartData()
+    },[])
+
+
+
+
+
 
     return(
         <div id='glass'>
@@ -13,15 +27,9 @@ const Charts=()=>{
                     labels: ['Jun', 'Jul', 'Aug'],
                     datasets: [
                       {
-                        id: 1,
-                        label: '',
+                        label: 'TSLA',
                         data: [5, 6, 7],
-                      },
-                      {
-                        id: 2,
-                        label: '',
-                        data: [3, 2, 1],
-                      },
+                      }
                     ],
                   }}/>
 
