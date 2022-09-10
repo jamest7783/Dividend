@@ -164,11 +164,13 @@ input{
 #charts{
     grid-area:4/1/5/5;
     display:flex;
+    overflow-x:scroll;
+    overflow-y:hidden;
 }
 .mini-chart{
     margin:10px;
     height:90%;
-    width:20%;
+    min-width:300px;
     background:white;
 }
 #portfolio{
@@ -222,6 +224,13 @@ input{
     justify-content:center;
     align-items:center;
 }
+#chart{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+ 
 
 
 
