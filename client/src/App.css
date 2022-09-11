@@ -252,6 +252,9 @@ input{
     width:100%;
     margin:10px;
     background:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
 }
 #equity{
     height:80%;

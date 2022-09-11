@@ -4,12 +4,17 @@ import axios from 'axios'
 const Community=({investor})=>{
 
     const [threads,setThreads]=useState([])
+    const getThreads=async ()=>{
+        const res=await axios.get('http://localhost:3001/api/thread/all')
+        setThreads(res.data)
+    }
+    useEffect(()=>{getThreads()},[])
     const [form,setForm]=useState({author:investor._id,name:'',symbol:'',tag:''})
     const handleChange=(e)=>{setForm({...form,[e.target.name]:e.target.value})}
     const handleSubmit=async (e)=>{
         e.preventDefault()
         const res=await axios.post('http://localhost:3001/api/thread/create',form)
-        console.log(res)
+        getThreads()
     }
 
     return(
@@ -31,16 +36,11 @@ const Community=({investor})=>{
                             <button className='thread-button'>hot</button>
                         </div>
                     </div>
-                    <div id='thread'></div>
-                    <div id='thread'></div>
-                    <div id='thread'></div>
-                    <div id='thread'></div>
-                    <div id='thread'></div>
-                    <div id='thread'></div>
-                    <div id='thread'></div>
-                    <div id='thread'></div>
-                    <div id='thread'></div>
-                    <div id='thread'></div>
+                    {threads.map((thread)=>(
+                        <div id='thread'>
+                            <div>{thread.name}</div>
+                        </div>
+                    ))}
                 </div>
                 <div id='top-performers'>
                     <div id='create-thread'>
