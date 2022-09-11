@@ -266,6 +266,7 @@ input{
     justify-self:left;
     height:50%;
     width:100%;
+    background: rgba(255,255,255,0.7);
     grid-area:1/1/1/1;
     position:fixed;
     border:1px solid black;
@@ -282,8 +283,26 @@ input{
     margin-left:10px;
     margin-bottom:7px;
     width:50%;
-    background:transparent;
+    background:white;
     border:1px solid black;
+}
+#news{
+    height:100%;
+    width:100%;
+    display:flex;
+    flex-wrap:wrap;
+    overflow:scroll;
+
+}
+#tile{
+    width:200px;
+    height:30%;
+    background:white;
+    margin:10px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-around;
+    align-items:center;
 }
 
 
