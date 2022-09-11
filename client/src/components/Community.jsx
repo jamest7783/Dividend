@@ -4,13 +4,30 @@ import axios from 'axios'
 const Community=({investor})=>{
 
     const [threads,setThreads]=useState([])
+    const [insights,setInsights]=useState()
     const getThreads=async ()=>{
         const res=await axios.get('http://localhost:3001/api/thread/all')
         setThreads(res.data)
     }
-    useEffect(()=>{getThreads()},[])
-    const [form,setForm]=useState({author:investor._id,name:'',symbol:'',tag:''})
+    const getInsights=async()=>{
+        const res=await axios.get('http://localhost:3001/api/insight/all')
+        setInsights(res.data)
+        console.log(res.data)
+    }
+    useEffect(( )=>{
+        getThreads()
+        getInsights()
+    },[])
+    const [form,setForm]=useState({author:investor._id,name:'',symbol:'',tag:'',textBody:''})
+    const [insight,setInsight]=useState({author:investor._id,text:'',thread:0})
+    const handleInsight=(e)=>{setInsight({...insight,[e.target.name]:e.target.value})}
     const handleChange=(e)=>{setForm({...form,[e.target.name]:e.target.value})}
+    const createReply=async (e,thread)=>{
+        e.preventDefault()
+        setInsight({...insight,thread})
+        const res=await axios.post('http://localhost:3001/api/insight/create',insight)
+        console.log(res.data)
+    }
     const handleSubmit=async (e)=>{
         e.preventDefault()
         const res=await axios.post('http://localhost:3001/api/thread/create',form)
@@ -38,7 +55,26 @@ const Community=({investor})=>{
                     </div>
                     {threads.map((thread)=>(
                         <div id='thread'>
-                            <div>{thread.name}</div>
+                            <div>
+                                <div id='thread-name'>{thread.name}</div>
+                                <div>{thread.textBody}</div>
+                                <button>upVote</button>
+                                <button>downVote</button>
+                                <div>
+                                    <button onClick={(e)=>{createReply(e)}}>
+                                        reply
+                                    </button>
+                                    <textarea
+                                        id='text'
+                                        onChange={handleInsight}
+                                        name='text'
+                                        type='text'
+                                        placeholder=''
+                                        value={insight.value}
+                                    ></textarea>   
+                                </div>
+
+                            </div> 
                         </div>
                     ))}
                 </div>
@@ -69,6 +105,15 @@ const Community=({investor})=>{
                                 value={form.value}
                                 required
                             ></input>
+                            <textarea
+                                id='text-body'
+                                onChange={handleChange}
+                                name='textBody'
+                                type='textBody'
+                                placeholder=''
+                                value={form.value}
+                                required
+                            ></textarea>
                             <button 
                                 onClick={(e)=>{handleSubmit(e)}}
                                 >create thread
