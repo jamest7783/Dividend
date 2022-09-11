@@ -10,7 +10,6 @@ const DiversificationRadial=({investor})=>{
 
     useEffect(()=>{
         const getPositions=async ()=>{
-            console.log(investor.portfolios[0])
             const res=await axios.get(`http://localhost:3002/api/portfolio/read/${investor.portfolios[0]}/positions`)
             setPositions(res.data)
             let temp={
@@ -21,7 +20,7 @@ const DiversificationRadial=({investor})=>{
                 temp.labels.push(pos)
                 temp.datasets[0].data.push(positions[pos].numShares*positions[pos].avgPricePerShare)
             })
-            setPieData({...temp})
+            setPieData({...temp} )
         }
         getPositions()
     },[])

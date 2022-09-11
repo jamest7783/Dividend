@@ -255,6 +255,37 @@ input{
     display:flex;
     justify-content:space-around;
 }
+#news{
+    height:100%;
+    width:100%;
+    border:1px solid black;
+    grid-area: 1/1/5/5;
+}
+#news-search-container{
+    align-self:left;
+    justify-self:left;
+    height:50%;
+    width:100%;
+    grid-area:1/1/1/1;
+    position:fixed;
+    border:1px solid black;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:left;
+}
+#news-search-input{
+    margin-left:10px;
+    width:70%;
+}
+#news-search-button{
+    margin-left:10px;
+    margin-bottom:7px;
+    width:50%;
+    background:transparent;
+    border:1px solid black;
+}
+
 
  
 
