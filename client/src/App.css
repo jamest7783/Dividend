@@ -185,8 +185,9 @@ input{
     justify-content:space-between;
 }
 .trending-tile{
+    margin:5px;
     height:100%;
-    width:23%;
+    width:400px;
     background:white;
 }
 #top-performers{
@@ -202,6 +203,15 @@ input{
     height:300px;
     width:100%;
 }
+#create-thread{
+    background:white;
+    margin:10px;
+    height:300px;
+    width:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
 #thread-container{
     grid-area:2/1/5/5;
     overflow:scroll;
@@ -210,6 +220,32 @@ input{
 #threads{
     height:100%;
     width:100%;
+}
+#thread-nav{
+    height:10%;
+    width:100%;
+    margin:10px;
+    background:white;
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+}
+#thread-search{
+    width:40%;
+    display:flex;
+}
+#thread-search-input{
+    width:300px;
+    margin-right:5px;
+}
+.thread-button{
+    background:transparent;
+    border-radius:5px;
+    margin-right:5px;
+}
+.thread-button:hover{
+    background:black;
+    color:white;
 }
 #thread{
     height:30%;

@@ -27,7 +27,7 @@ const DiversificationRadial=({investor})=>{
 
     return(
         <div id='diversification-radial'>
-            <Pie data={pieData}/> 
+            <Pie data={pieData }/> 
         </div>
     )
 }
