@@ -4,7 +4,8 @@ import axios from 'axios'
 const Community=({investor})=>{
 
     const [threads,setThreads]=useState([])
-    const [insights,setInsights]=useState()
+    const [insights,setInsights]=useState([])
+
     const getThreads=async ()=>{
         const res=await axios.get('http://localhost:3001/api/thread/all')
         setThreads(res.data)
@@ -12,7 +13,6 @@ const Community=({investor})=>{
     const getInsights=async()=>{
         const res=await axios.get('http://localhost:3001/api/insight/all')
         setInsights(res.data)
-        console.log(res.data)
     }
     useEffect(( )=>{
         getThreads()
@@ -32,6 +32,7 @@ const Community=({investor})=>{
         e.preventDefault()
         const res=await axios.post('http://localhost:3001/api/thread/create',form)
         getThreads()
+        getInsights()
     }
 
     return(
@@ -61,7 +62,7 @@ const Community=({investor})=>{
                                 <button>upVote</button>
                                 <button>downVote</button>
                                 <div>
-                                    <button onClick={(e)=>{createReply(e)}}>
+                                    <button onClick={(e)=>{createReply(e,thread._id)}}>
                                         reply
                                     </button>
                                     <textarea
@@ -73,7 +74,10 @@ const Community=({investor})=>{
                                         value={insight.value}
                                     ></textarea>   
                                 </div>
-
+                                {insights?.map((insight)=>(
+                                    insight.thread===thread._id &&
+                                    <div>{insight.text}</div>
+                                ))}
                             </div> 
                         </div>
                     ))}
