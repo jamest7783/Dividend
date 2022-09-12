@@ -23,5 +23,7 @@ app.listen(PORTMONGO,()=>{console.log(`Express server paired with Mongo listenin
  
 
 /*
-mongodb+srv://jamest:<password>@dividends-cluster.zejsrym.mongodb.net/?retryWrites=true&w=majority
+mongodb+srv://jamest:dingleberry@dividends-cluster.zejsrym.mongodb.net/?retryWrites=true&w=majority
+
+heroku config:set MONGODB_URI='mongodb+srv://jamest:dingleberry@dividends-cluster.zejsrym.mongodb.net/?retryWrites=true&w=majority'
 */
