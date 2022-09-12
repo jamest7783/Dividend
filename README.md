@@ -1,4 +1,4 @@
-# dividends
+# dividend
 <img align="left" width="40" height="40" src="https://cdn.corporatefinanceinstitute.com/assets/japanese-candlestick7.jpeg" alt="Resume application project app icon">
 
 
