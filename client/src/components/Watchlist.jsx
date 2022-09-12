@@ -13,7 +13,7 @@ const Watchlist=({investor})=>{
                     'http://localhost:3002/api/equity/historical',{ticker:res.data.symbols[symbol],period:'d'})
                 let sym=watchlistData.data[0].symbol
                 let close=watchlistData.data[0].close
-                tempArray.push({[`${sym}`]:close})
+                tempArray.push({[`${sym}`]:close.toFixed(2)})
             } 
             setWatchlistItems(tempArray)
         } 

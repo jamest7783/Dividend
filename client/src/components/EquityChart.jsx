@@ -12,7 +12,7 @@ const EquityChart=({investor})=>{
                 const res=await axios.get(`http://localhost:3002/api/portfolio/read/${investor.portfolios[i]}`)
                 capital+=res.data.capital
             }
-            setEquity(capital)
+            setEquity(capital.toFixed(2))
         }
         grabPortfolio()
     },[])

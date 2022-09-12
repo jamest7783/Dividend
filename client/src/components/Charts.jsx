@@ -80,11 +80,11 @@ const Charts=({investor})=>{
             </div>
             <div id='trade-bar-container'>
                     <div>
-                        per Share: {mainChartData.datasets[0].data[mainChartData.datasets[0].data.length-1]}
+                        per Share: {mainChartData.datasets[0].data[mainChartData.datasets[0].data.length-1].toFixed(2)}
                     </div>
                     <div>
-                        cost basis:{mainChartData.datasets[0].data[mainChartData.datasets[0].data.length-1]
-                        *order.numShares}
+                        cost basis:{(mainChartData.datasets[0].data[mainChartData.datasets[0].data.length-1]
+                        *order.numShares).toFixed(2)}
                     </div>
                     <input 
                         id='order-numShares'

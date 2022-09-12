@@ -22,9 +22,9 @@ const Positions=({investor})=>{
                 <div id='position'>
                     <p>{pos.toUpperCase()}</p>
                     <p>Shares: {positions[pos].numShares}</p> 
-                    <p>AvgPricePerShare: {positions[pos].avgPricePerShare}</p> 
-                    <p>Last Close: {positions[pos].currentPrice}</p> 
-                    <p>Capital Gains: {positions[pos].currentPrice-positions[pos].avgPricePerShare}</p> 
+                    <p>AvgPricePerShare: {positions[pos].avgPricePerShare.toFixed(2)}</p> 
+                    <p>Last Close: {positions[pos].currentPrice.toFixed(2)}</p> 
+                    <p>Capital Gains: {(positions[pos].numShares*(positions[pos].currentPrice-positions[pos].avgPricePerShare)).toFixed(2)}</p> 
                     
                 </div>
             ))}

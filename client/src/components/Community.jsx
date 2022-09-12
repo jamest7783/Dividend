@@ -14,7 +14,7 @@ const Community=({investor})=>{
         const res=await axios.get('http://localhost:3001/api/insight/all')
         setInsights(res.data)
     }
-    useEffect(( )=>{
+    useEffect(()=>{
         getThreads()
         getInsights()
     },[])
