@@ -8,8 +8,8 @@ const allThreads=async (req,res)=>{
 }
 const createThread=async (req,res)=>{
     try{
-        const {author,name,symbols,tags}=req.body
-        const thread=await Thread.create({author,name,symbols,tags}) 
+        const {author,name,symbols,tags,textBody}=req.body
+        const thread=await Thread.create({author,name,symbols,tags,textBody}) 
         res.status(200).json(thread)
     }catch(error){throw error}
 }

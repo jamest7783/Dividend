@@ -8,8 +8,8 @@ const allInsights=async (req,res)=>{
 }
 const createInsight=async (req,res)=>{
     try{
-        const {text,thread,reactions,voters,votes}=req.body
-        const insight=await Insight.create({text,thread,reactions,voters,votes}) 
+        const {author,text,thread,reactions,voters,votes}=req.body
+        const insight=await Insight.create({author,text,thread,reactions,voters,votes}) 
         res.status(200).json(insight)
     }catch(error){throw error}
 }

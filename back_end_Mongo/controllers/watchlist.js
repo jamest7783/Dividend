@@ -1,4 +1,6 @@
+let googleNewsAPI=require('google-news-json')
 const Watchlist=require('../models/Watchlist')
+
 
 const allWatchlists=async (req,res)=>{
     try{
@@ -42,11 +44,20 @@ const deleteWatchlist=async (req,res)=>{
         res.status(200).json({alert:`Watchlist with ID: ${id} deleted.`})
     }catch(error){throw error}
 }
+const getEquityNews=async (req,res)=>{
+    try{
+        const {query}=req.body
+        let news=await googleNewsAPI.getNews(googleNewsAPI.SEARCH,query, "en-GB")
+        res.status(200).json(news)
+    }catch(eror){throw error}
+}
 
 module.exports={
     allWatchlists,
     createWatchlist,
     readWatchlist,
     updateWatchlist,
-    deleteWatchlist
+    deleteWatchlist,
+
+    getEquityNews
 }
