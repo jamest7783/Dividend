@@ -4,9 +4,9 @@
 
 #### 09.01.2022
 ####
-[LinkedIn]( https://www.linkedin.com/in/james-jewitt/ ) |  [GitHub](https://github.com/jamest7783) |  [Trello](https://trello.com/b/VUohSIUT/dividends)
+[LinkedIn]( https://www.linkedin.com/in/james-jewitt/ ) |  [GitHub](https://github.com/jamest7783)  |  [Trello]()
 ####
-[LinkedIn]( https://www.linkedin.com/in/james-jewitt/ ) |  [GitHub](https://github.com/jamest7783) |  [Trello](https://trello.com/b/VUohSIUT/dividends)
+[React FrontEnd](https://github.com/jamest7783/dividend_client) | [MongoDB BackEnd](https://github.com/jamest7783/dividend_mongoDB) | [PostGreSQL BackEnd](https://github.com/jamest7783/dividend_postgreSQL)
 ***
 
 ### ***Description*** 
