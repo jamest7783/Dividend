@@ -5,7 +5,8 @@
 #### 09.01.2022
 ####
 [LinkedIn]( https://www.linkedin.com/in/james-jewitt/ ) |  [GitHub](https://github.com/jamest7783) |  [Trello](https://trello.com/b/VUohSIUT/dividends)
-
+####
+[LinkedIn]( https://www.linkedin.com/in/james-jewitt/ ) |  [GitHub](https://github.com/jamest7783) |  [Trello](https://trello.com/b/VUohSIUT/dividends)
 ***
 
 ### ***Description*** 
